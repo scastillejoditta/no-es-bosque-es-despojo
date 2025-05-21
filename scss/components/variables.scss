@@ -1,0 +1,33 @@
+// fuentes
+@font-face {
+    font-family: 'texto';
+    src: url("../assets/fonts/SpaceMono-Regular.ttf"); }
+  
+@font-face {
+    font-family: 'titulos';
+    src: url("../assets/fonts/SpaceMono-Bold.ttf"); }
+  
+@font-face {
+    font-family: 'leyenda';  
+    src: url("../assets/fonts/Denim-Medium.otf"); }
+  
+@font-face {
+    font-family: 'menu';
+    src: url("../assets/fonts/Denim-Bold.otf"); }
+
+
+// colores
+$verde: #CEFAAB;
+$rosa: #FFB68E;
+$fondo:#000000;
+$verde_mutante: #92ff64;
+
+// fotos de las tarjetas
+$fotos:
+(
+        tierras: url("../assets/images/#"),
+        galeria: url("../assets/images/#"),
+        colombia: url("../assets/images/#"),
+        venezuela: url("../assets/images/#"),
+        ensayo: url("../assets/images/#")
+);

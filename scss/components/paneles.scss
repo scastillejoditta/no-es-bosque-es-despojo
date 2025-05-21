@@ -1,0 +1,449 @@
+// parámetros globales
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; // 🔐 Esto evitará que cualquier contenido se desborde horizontalmente
+}
+
+.titulos 
+{
+    color: $verde;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'titulos', sans-serif;
+}
+
+h1 {
+    @extend .titulos;
+    width: 42%;
+    font-size: 3em;
+}
+
+h2 {
+    @extend .titulos;
+    font-size: 2em;
+}
+
+p 
+{
+    font-family: 'texto', sans-serif;
+}
+
+span
+{
+    font-family: 'leyenda', sans-serif;
+}
+
+small
+{
+    font-family: 'menu', sans-serif;
+}
+
+.texto 
+{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menta 
+{
+    color: $verde;
+
+    * {
+    color: $verde;}
+
+    .enlace {
+    color: $verde;
+    border-bottom: $rosa dotted 2px;
+
+    &:hover {color: $rosa; }
+    }
+}
+
+.rosa 
+{
+    color: $rosa;
+    
+    * {
+    color: $rosa;}
+
+    .enlace {
+    color: $rosa;
+    border-bottom: $verde dotted 2px;
+
+    &:hover {color: $verde; }
+    }
+}
+
+#principal 
+{
+    position: relative;
+}
+
+// menú de paneles
+#indicator {
+  position: fixed;
+  top: 100px;
+  right: 30px;
+  z-index: 1000;
+  max-width: 200px;
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    font-size: 0.1em;
+    color: $rosa;
+    margin: 0;
+    padding: 0.25rem;
+    transition: all 0.3s ease;
+    text-shadow: 1px 2px 4px #000;
+
+    i.material-icons {
+      margin: 0;
+      transition: margin 0.3s ease;
+    }
+
+    &:hover {
+      font-size: 0.8em;
+      transform: scale(1.2);
+      
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    &::after {
+      content: '';
+      opacity: 0;
+      margin-left: 0.5rem;
+      transition: opacity 0.3s;
+      white-space: nowrap;
+    }
+
+    &.active {
+      background: none;
+      font-size: 1em;
+
+      i.material-icons {
+        margin-right: 0;
+      }
+    }
+
+    // Diferentes textos mostrados al hacer hover
+    &:nth-child(1):hover::after {
+      content: 'Intro';
+    }
+    &:nth-child(2):hover::after {
+      content: 'Tierras';
+    }
+    &:nth-child(3):hover::after {
+      content: 'Energía';
+    }
+    &:nth-child(4):hover::after {
+      content: 'Periodismo';
+    }
+    &:nth-child(5):hover::after {
+      content: 'Conversación';
+    }
+    &:nth-child(6):hover::after {
+      content: 'Equipo';
+    }
+  }
+}
+
+// paneles
+.section 
+{
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.separador
+{
+    height: 101vh;
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url("../assets/images/5_Arboles_texturas.svg");
+    background-size: cover;
+    opacity: .9;
+    margin: 3em 0 0 0;
+}
+
+.apertura 
+{
+    @extend .section;
+    position: relative;
+    padding-top: 0;
+    height: 100vh;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+.apertura_video
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    border: none;
+}
+
+.encabezado {
+  display: grid;
+  grid-template-columns: 1fr 1fr;      // Dos columnas iguales
+  grid-template-rows: auto auto;      // Dos filas
+  gap: 1rem;
+  align-items: left;
+  justify-content: flex-start;
+  margin-bottom: 2em;
+  // Fila 1: ocupa ambas columnas
+  .fila1 {
+    grid-column: 1 / 3;               // De columna 1 a 3 (ocupa dos columnas)
+    padding: 1rem;
+  }
+
+  // Fila 2: dos columnas
+  .columnaA {
+    display: grid;
+    grid-template-rows: 1fr 1fr;      // Divide columna A en dos partes verticales
+    gap: 1rem;
+    display: block;
+    justify-content: flex-start;
+  }
+
+  .columnaA1 {align-items: bottom;} 
+  .columnaA2 {align-items: top;
+    padding: 1rem;
+  }
+
+  .columnaB {
+    display: flex;
+    justify-content: flex-end; // alinea horizontalmente a la derecha
+    align-items: center;
+
+    .sello {
+        height: 6em;
+        width: 6em;
+        
+        padding: 1rem;
+        background-image: url("../assets/images/3_Mano_circulo.png");
+        background-size: cover;
+        opacity: .9;
+        margin-right: 2em;
+        //border-radius: 5px 5px 0 0;
+        //overflow: hidden;
+        }
+  }
+}
+
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;      // Dos columnas iguales
+    grid-template-rows: auto auto;      // Dos filas
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    padding: 0;
+    margin: 4em auto;
+    gap: 1rem;
+}
+
+.card
+{
+    width: 100%;
+    height: 25em;
+    padding: 3px;
+    background-color: #000;
+    transition: all .8s;
+
+    &:hover 
+    {
+        border: solid 1px $rosa;
+    }
+
+    //card__header
+    &__header 
+    {
+        position: relative;
+        height: 15em;
+        text-transform: uppercase;
+        //card__header-img
+        &-img 
+        {
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            display:block;
+            height: 15em;
+            opacity: .7;
+            overflow: hidden;
+        }
+
+        //card__header-tag
+        &-tag 
+        { 
+            position: absolute; 
+            top: 0;
+            left: 0; 
+            padding: 5px; 
+            color: #000; 
+            background-color: $rosa; 
+            font-family: 'menu', sans-serif;
+            display: inline-block;
+            font-size: small;
+            border-bottom-left-radius: 0;
+        }
+
+        //card__header-title
+        &-title 
+        {
+            position: absolute; 
+            top: 60%; 
+            left: 5px;
+            font-family: 'titulos', sans-serif;
+            font-size: 1.4em;
+            text-align: left;
+           // color: #fff;
+        }
+    }
+
+    &__descrip 
+    {
+        margin: 20px;
+        line-height: 1;
+        color: $rosa;
+        p
+        {
+            line-height: 1;
+            margin-top: 10px;
+        }
+
+        &-autor 
+        {
+            font-family: 'texto', sans-serif;
+            text-transform: uppercase;
+        }
+
+    } 
+}
+
+.youtube-wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 80%;//640px;
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+  margin: 2em auto;
+
+  .youtube-thumbnail {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding:3px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 68px;
+      height: 48px;
+      background: url('https://img.icons8.com/ios-filled/100/ffffff/play-button-circled.png') no-repeat center;
+      background-size: contain;
+      opacity: 0.8;
+    }
+
+    .tag 
+    { 
+            position: absolute; 
+            top: 3px;
+            left: 3px; 
+            padding: 5px; 
+            color: #000; 
+            background-color: $rosa; 
+            font-family: 'menu', sans-serif;
+            display: inline-block;
+            font-size: small;
+    }
+
+    .title 
+    { 
+            position: absolute; 
+            top: 10%; 
+            left: 5px;
+            font-family: 'titulos', sans-serif;
+            font-size: 2em;
+            text-align: left;
+            color: #fff;
+            text-transform: uppercase;
+    }
+  }
+
+    &:hover
+    {
+        border:solid 1px $rosa;
+    }
+
+    &::after
+    {
+    border:solid 1px $rosa;
+    }
+}
+
+.embed
+{
+    min-width: 80%; 
+    max-width: 80%; 
+    margin: 0 auto; 
+    position: relative; 
+    top: 0; 
+    left: 0; 
+    padding-top: 56.25%;
+    border:solid 1px $rosa;
+
+    &__tag 
+        { 
+            position: absolute; 
+            top: 0;
+            left: 0; 
+            padding: 5px; 
+            color: #000; 
+            background-color: $rosa; 
+            font-family: 'menu', sans-serif;
+            display: inline-block;
+            font-size: small;
+            border-bottom-left-radius: 0;
+        }
+
+    &__video
+    {
+        position: absolute; 
+        height: 92%; 
+        width: 95%; 
+        top: 3%; 
+        left: 3%; 
+        border: none;
+    }
+}
+
