@@ -74,6 +74,13 @@ small
 
 .texto 
 {
+    width: 90%;
+    margin-left: 10px;
+    //margin-right: 5%;
+}
+
+.intro 
+{
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -191,6 +198,14 @@ small
       content: 'Equipo';
     }
   }
+    @media (max-width: 600px)
+    {
+      right: 10px;
+    }
+    @media (max-width: 485px)
+    {
+      right: 3px;
+    }
 }
 
 // paneles
@@ -221,27 +236,21 @@ small
 
 .apertura 
 {
-    @extend .section;
-    position: relative;
-    padding-top: 0;
-    height: 100vh;
-    margin: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} 
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; // 16:9 aspect ratio (9 / 16 = 0.5625)
+  overflow: hidden;
 
-.apertura_video
-{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    border: none;
-}
+    &__video
+    {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; // llena el contenedor recortando si es necesario
+    }
+} 
 
 .encabezado {
   display: grid;
@@ -264,6 +273,7 @@ small
     gap: 1rem;
     display: block;
     justify-content: flex-start;
+    
   }
 
   .columnaA1 {align-items: bottom;} 
@@ -285,12 +295,25 @@ small
         background-size: cover;
         opacity: .9;
         margin-right: 2em;
-        //border-radius: 5px 5px 0 0;
-        //overflow: hidden;
         }
   }
-}
 
+  @media (max-width: 518px)
+    {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto; 
+
+    .columnaA {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .columnaB {
+      grid-column: 1;
+      grid-row: 3;
+    }
+    }
+}
 
 .cards {
     display: grid;
@@ -308,10 +331,11 @@ small
 .card
 {
     width: 100%;
-    height: 25em;
+    min-height: 22em;
     padding: 3px;
     background-color: #000;
     transition: all .8s;
+    max-width: 25em;
 
     //card__header
     &__header 
@@ -344,6 +368,7 @@ small
             display: inline-block;
             font-size: small;
             border-bottom-left-radius: 0;
+            text-transform: uppercase;
         }
 
         //card__header-title
@@ -353,7 +378,7 @@ small
             top: 60%; 
             left: 5px;
             font-family: 'titulos', sans-serif;
-            font-size: 1.4em;
+            font-size: 1.2em;
             text-align: left;
            // color: #fff;
         }
@@ -363,10 +388,12 @@ small
     {
         margin: 20px;
         line-height: 1;
-        //color: $rosa;
+        font-size: 0.8em;
+
         p
         {
             line-height: 1;
+            
             margin-top: 10px;
         }
 
@@ -380,22 +407,17 @@ small
 
 @mixin colorear_cards($color)
 {
-  .card__header-tag { background-color: $color; }
-  .card__descrip, .card__header-title { color: $color; }
-  .card:hover 
+  .card__header-tag, .card_total__header-tag { background-color: $color; }
+  .card__descrip, 
+  .card__header-title, 
+  .card_total__descrip-title, 
+  .card_total__descrip-autor, 
+  .card_total__descrip p { color: $color; }
+
+  .card:hover, .card_total:hover 
     {
         border: solid 1px $color;
     }
-}
-
-.tierras
-{
-  @extend .cards;
-  @include colorear_cards($rosa);
-  gap: 1rem;
-
-  .card {
-    max-width: 25em; }
 }
 
 .youtube-wrapper {
@@ -422,7 +444,7 @@ small
     .play-button {
       position: absolute;
       top: 50%;
-      left: 50%;
+      left: 10%;
       transform: translate(-50%, -50%);
       width: 68px;
       height: 48px;
@@ -447,13 +469,25 @@ small
     .title 
     { 
             position: absolute; 
-            top: 10%; 
-            left: 5px;
+            top: 43%; 
+            left: 15%;
+            width: 80%;
             font-family: 'titulos', sans-serif;
-            font-size: 2em;
             text-align: left;
             color: $rosa;
             text-transform: uppercase;
+    }
+
+    @media (max-width: 650px)
+    {
+      .title 
+      { 
+        font-size: 1.2em;
+        left: 13%;
+      }
+      .play-button {
+        left: 7%;
+      }
     }
   }
 
@@ -465,7 +499,7 @@ small
     &::after
     {
     border:solid 1px $rosa;
-    }
+    }  
 }
 
 .energia {
@@ -505,7 +539,8 @@ small
     stroke-linecap: round;
 
     // patrón punteado irregular
-    stroke-dasharray: 6 4 2 8 3 5;
+    //stroke-dasharray: 6 4 2 8 3 5;
+    stroke-dasharray: 15 8 20 8 30 8;
     stroke-dashoffset: 0;
 
     // animación infinita tipo flujo de río
@@ -533,6 +568,7 @@ small
       font-size: 0.8em;
       color: $verde;
       white-space: nowrap;
+      font-style: italic;
     }
   }
 }
@@ -543,8 +579,13 @@ small
   height: 21em;
   margin: 2em auto;
   @extend .map-line-container;
+
   .marker {
     transform: translate(20%, 200%); // coordenadas que pediste
+
+    .label {
+      font-size: 0.6em;
+    }    
   }
 }
 
@@ -572,6 +613,244 @@ small
     stroke-dashoffset: -28; // suma del patrón: 6+4+2+8+3+5
   }
 }
+
+.tierras
+{
+  @extend .cards;
+  @include colorear_cards($rosa);
+  gap: 1rem;
+}
+
+.card_horizontal
+{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: 1159px)
+    {
+      width: 90%;
+    }
+  @media (max-width: 1082px)
+    {
+      width: 95%;
+    }
+}
+
+#social
+{
+  @include colorear_cards($verde);
+}
+
+#etica
+{
+  @include colorear_cards($rosa);
+}
+
+.card_total
+{
+    margin-top: 5em;
+    width: 100%;
+    //min-height: 19em;
+    height: 19em;
+    padding: 3px;
+    background-color: #000;
+    display: grid;
+    grid-template-columns: 1fr 1fr;      // Dos columnas iguales
+    grid-template-rows: auto;      // Dos filas
+    width: 100%;
+    //max-width: 25em;
+
+    //card__header
+    &__header 
+    {
+      grid-column: 1;
+      position: relative;
+      text-transform: uppercase;
+        //card__header-img
+        &-img 
+        {
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            display:block;
+            height: auto;
+            opacity: .7;
+            overflow: hidden;
+            padding-bottom: 0;
+        }
+
+        //card__header-tag
+        &-tag 
+        { 
+            position: absolute; 
+            top: 0;
+            left: 0; 
+            padding: 5px; 
+            color: #000; 
+            //background-color: $rosa; 
+            font-family: 'menu', sans-serif;
+            display: inline-block;
+            font-size: small;
+            border-bottom-left-radius: 0;
+        }
+    }
+
+    &__descrip 
+    {
+      grid-column: 2;
+      margin: 20px;
+      line-height: 1;
+      font-size: 0.8em;
+      padding-right: 70px;
+
+      &-title 
+        {
+          font-family: 'titulos', sans-serif;
+          font-size: 1.8em;
+          text-align: left;
+          text-transform: uppercase;
+          margin-bottom: 2em;
+        }
+      p
+        {
+          line-height: 1;  
+          margin-top: 10px;
+          padding-bottom: 0;
+        }
+
+        &-autor 
+        {
+            font-family: 'texto', sans-serif;
+            text-transform: uppercase;
+        }
+    } 
+
+    @media (max-width: 1159px)
+    {
+      .card_total__descrip-title {margin-bottom: 1em; }
+      grid-template-columns: 0.7fr 1.3fr;
+      height: 14em;
+
+    }
+
+    @media (max-width: 1030px)
+    {
+      .card_total__descrip {
+        padding-right: 30px;
+        margin: 10px;
+      }
+      height: 13em;
+    }
+
+    @media (max-width: 932px)
+    {
+      grid-template-columns: 1fr;
+      height: 35em;
+      max-width: 25em;
+      margin-left: auto;
+      margin-right: auto;
+      .card_total__header {grid-column: 1; grid-row: 1; position: inherit;}
+      .card_total__header-img {position: inherit;}
+      .card_total__descrip {grid-column: 1; grid-row: 2;}
+      .card_total__descrip {
+        padding-right: 20px;
+        margin-top: 30px;
+      }
+    }
+}
+
+  .ruta
+  {
+    width: 50%;
+    margin-top: 5em;
+    margin-left: auto;
+    margin-right: auto;
+
+    &__pieza 
+    {
+      background-color: #000;
+      padding: 2px;
+      display: grid;
+      grid-template-columns: 0.5fr 1fr;      // Dos columnas iguales
+      grid-template-rows: auto;
+      height:200px;
+      margin-bottom: 2em;
+      transition: all 1s;
+
+      &-header
+      {
+        position: relative;
+        background-color: $verde;
+        
+        &-img {
+          @extend .card__header-img;
+          width: 100%;
+          height: 200px; 
+          background-color: $verde; 
+          background-size: contain;         
+          background-position: center center;
+          background-repeat: no-repeat;   
+        }
+      }
+
+      &-descrip
+      {
+        padding: 2em 4em 0 1em;
+        
+        span {
+          text-transform: uppercase;
+          font-family: 'menu', sans-serif;
+          font-size: 0.9em;
+          color: #000;
+          background-color: $verde;
+          padding: 0.5em;
+        }
+
+        p {
+          font-family: 'titulos', sans-serif;
+          font-size: 1em;
+          text-transform: uppercase;
+          color: $verde;
+          margin-top: 1em;
+          margin-bottom: 0;
+        }
+
+        small 
+        {
+          font-family: 'texto', sans-serif;
+          letter-spacing: 1px;
+          color: $verde;
+          margin-top: 0;
+          margin-bottom: 0.5em;
+        }
+      }
+
+      &:hover
+      {
+        border: solid 1px $verde;
+      }
+    }
+    
+    @media (max-width: 928px)
+    {
+      width: 90%;
+    }
+
+     @media (max-width: 928px)
+    {
+      .ruta__pieza, .ruta__pieza-header-img {height:150px;}
+      .ruta__pieza-descrip
+      {padding: 1em 1em 0 1em;}
+    }
+  }
+
+.pieza1
+{background-image: url("https://mutante.org/wp-content/uploads/2025/05/01-100-jpg.webp");}
+.pieza2
+{background-image: url("https://mutante.org/wp-content/uploads/2025/05/Poster-jpg.webp");}
+.pieza3
+{background-image: url("https://mutante.org/wp-content/uploads/2025/05/01-100_11zon.jpg");}
 
 //responsive
 @media (max-width: 1000px)

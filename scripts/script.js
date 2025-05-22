@@ -1,3 +1,5 @@
+  // script para el video de youtube
+
 document.addEventListener('DOMContentLoaded', function () {
   // Selecciona todos los contenedores con videos de YouTube
   document.querySelectorAll('.youtube-wrapper').forEach(wrapper => {
@@ -19,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+// script para que el menú lateral escuche en qué panel está y reaccione
 
 const panels = document.querySelectorAll('.panel');
   const links = document.querySelectorAll('#indicator .nav-link');

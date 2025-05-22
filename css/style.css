@@ -272,6 +272,11 @@ small {
 }
 
 .texto {
+  width: 90%;
+  margin-left: 10px;
+}
+
+.intro {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -377,8 +382,18 @@ small {
 #indicator .nav-link:nth-child(6):hover::after {
   content: "Equipo";
 }
+@media (max-width: 600px) {
+  #indicator {
+    right: 10px;
+  }
+}
+@media (max-width: 485px) {
+  #indicator {
+    right: 3px;
+  }
+}
 
-.section, .apertura {
+.section {
   min-height: 100vh;
   width: 100%;
   padding-top: 100px;
@@ -406,23 +421,17 @@ small {
 
 .apertura {
   position: relative;
-  padding-top: 0;
-  height: 100vh;
-  margin: 0;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-bottom: 56.25%;
+  overflow: hidden;
 }
-
-.apertura_video {
+.apertura__video {
   position: absolute;
-  height: 100%;
-  width: 100%;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border: none;
 }
 
 .encabezado {
@@ -466,8 +475,22 @@ small {
   opacity: 0.9;
   margin-right: 2em;
 }
+@media (max-width: 518px) {
+  .encabezado {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .encabezado .columnaA {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .encabezado .columnaB {
+    grid-column: 1;
+    grid-row: 3;
+  }
+}
 
-.cards, .energia, .tierras {
+.cards, .tierras, .energia {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
@@ -482,17 +505,18 @@ small {
 
 .card, .energia__col1, .energia__col3 {
   width: 100%;
-  height: 25em;
+  min-height: 22em;
   padding: 3px;
   background-color: #000;
   transition: all 0.8s;
+  max-width: 25em;
 }
 .card__header {
   position: relative;
   height: 15em;
   text-transform: uppercase;
 }
-.card__header-img {
+.card__header-img, .ruta__pieza-header-img {
   position: absolute;
   top: 0px;
   width: 100%;
@@ -511,18 +535,20 @@ small {
   display: inline-block;
   font-size: small;
   border-bottom-left-radius: 0;
+  text-transform: uppercase;
 }
 .card__header-title {
   position: absolute;
   top: 60%;
   left: 5px;
   font-family: "titulos", sans-serif;
-  font-size: 1.4em;
+  font-size: 1.2em;
   text-align: left;
 }
 .card__descrip {
   margin: 20px;
   line-height: 1;
+  font-size: 0.8em;
 }
 .card__descrip p {
   line-height: 1;
@@ -531,22 +557,6 @@ small {
 .card__descrip-autor {
   font-family: "texto", sans-serif;
   text-transform: uppercase;
-}
-
-.tierras {
-  gap: 1rem;
-}
-.tierras .card__header-tag {
-  background-color: #FFB68E;
-}
-.tierras .card__descrip, .tierras .card__header-title {
-  color: #FFB68E;
-}
-.tierras .card:hover, .tierras .energia__col1:hover, .tierras .energia__col3:hover {
-  border: solid 1px #FFB68E;
-}
-.tierras .card, .tierras .energia__col1, .tierras .energia__col3 {
-  max-width: 25em;
 }
 
 .youtube-wrapper {
@@ -572,7 +582,7 @@ small {
 .youtube-wrapper .youtube-thumbnail .play-button {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 10%;
   transform: translate(-50%, -50%);
   width: 68px;
   height: 48px;
@@ -593,13 +603,22 @@ small {
 }
 .youtube-wrapper .youtube-thumbnail .title {
   position: absolute;
-  top: 10%;
-  left: 5px;
+  top: 43%;
+  left: 15%;
+  width: 80%;
   font-family: "titulos", sans-serif;
-  font-size: 2em;
   text-align: left;
   color: #FFB68E;
   text-transform: uppercase;
+}
+@media (max-width: 650px) {
+  .youtube-wrapper .youtube-thumbnail .title {
+    font-size: 1.2em;
+    left: 13%;
+  }
+  .youtube-wrapper .youtube-thumbnail .play-button {
+    left: 7%;
+  }
 }
 .youtube-wrapper:hover {
   border: solid 1px #FFB68E;
@@ -612,13 +631,17 @@ small {
   grid-template-columns: 1fr 0.5fr 1fr;
   grid-template-rows: auto;
 }
-.energia .card__header-tag {
+.energia .card__header-tag, .energia .card_total__header-tag {
   background-color: #CEFAAB;
 }
-.energia .card__descrip, .energia .card__header-title {
+.energia .card__descrip,
+.energia .card__header-title,
+.energia .card_total__descrip-title,
+.energia .card_total__descrip-autor,
+.energia .card_total__descrip p {
   color: #CEFAAB;
 }
-.energia .card:hover, .energia .energia__col1:hover, .energia .energia__col3:hover {
+.energia .card:hover, .energia .energia__col1:hover, .energia .energia__col3:hover, .energia .card_total:hover {
   border: solid 1px #CEFAAB;
 }
 .energia__col2 {
@@ -641,7 +664,7 @@ small {
   fill: none;
   stroke-width: 3;
   stroke-linecap: round;
-  stroke-dasharray: 6 4 2 8 3 5;
+  stroke-dasharray: 15 8 20 8 30 8;
   stroke-dashoffset: 0;
   animation: flowRío 3s linear infinite;
 }
@@ -665,6 +688,7 @@ small {
   font-size: 0.8em;
   color: #CEFAAB;
   white-space: nowrap;
+  font-style: italic;
 }
 
 #rio_desktop {
@@ -674,6 +698,9 @@ small {
 }
 #rio_desktop .marker {
   transform: translate(20%, 200%);
+}
+#rio_desktop .marker .label {
+  font-size: 0.6em;
 }
 
 #rio_mobile {
@@ -695,6 +722,254 @@ small {
     stroke-dashoffset: -28;
   }
 }
+.tierras {
+  gap: 1rem;
+}
+.tierras .card__header-tag, .tierras .card_total__header-tag {
+  background-color: #FFB68E;
+}
+.tierras .card__descrip,
+.tierras .card__header-title,
+.tierras .card_total__descrip-title,
+.tierras .card_total__descrip-autor,
+.tierras .card_total__descrip p {
+  color: #FFB68E;
+}
+.tierras .card:hover, .tierras .energia__col1:hover, .tierras .energia__col3:hover, .tierras .card_total:hover {
+  border: solid 1px #FFB68E;
+}
+
+.card_horizontal {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 1159px) {
+  .card_horizontal {
+    width: 90%;
+  }
+}
+@media (max-width: 1082px) {
+  .card_horizontal {
+    width: 95%;
+  }
+}
+
+#social .card__header-tag, #social .card_total__header-tag {
+  background-color: #CEFAAB;
+}
+#social .card__descrip,
+#social .card__header-title,
+#social .card_total__descrip-title,
+#social .card_total__descrip-autor,
+#social .card_total__descrip p {
+  color: #CEFAAB;
+}
+#social .card:hover, #social .energia__col1:hover, #social .energia__col3:hover, #social .card_total:hover {
+  border: solid 1px #CEFAAB;
+}
+
+#etica .card__header-tag, #etica .card_total__header-tag {
+  background-color: #FFB68E;
+}
+#etica .card__descrip,
+#etica .card__header-title,
+#etica .card_total__descrip-title,
+#etica .card_total__descrip-autor,
+#etica .card_total__descrip p {
+  color: #FFB68E;
+}
+#etica .card:hover, #etica .energia__col1:hover, #etica .energia__col3:hover, #etica .card_total:hover {
+  border: solid 1px #FFB68E;
+}
+
+.card_total {
+  margin-top: 5em;
+  width: 100%;
+  height: 19em;
+  padding: 3px;
+  background-color: #000;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  width: 100%;
+}
+.card_total__header {
+  grid-column: 1;
+  position: relative;
+  text-transform: uppercase;
+}
+.card_total__header-img {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  display: block;
+  height: auto;
+  opacity: 0.7;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+.card_total__header-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px;
+  color: #000;
+  font-family: "menu", sans-serif;
+  display: inline-block;
+  font-size: small;
+  border-bottom-left-radius: 0;
+}
+.card_total__descrip {
+  grid-column: 2;
+  margin: 20px;
+  line-height: 1;
+  font-size: 0.8em;
+  padding-right: 70px;
+}
+.card_total__descrip-title {
+  font-family: "titulos", sans-serif;
+  font-size: 1.8em;
+  text-align: left;
+  text-transform: uppercase;
+  margin-bottom: 2em;
+}
+.card_total__descrip p {
+  line-height: 1;
+  margin-top: 10px;
+  padding-bottom: 0;
+}
+.card_total__descrip-autor {
+  font-family: "texto", sans-serif;
+  text-transform: uppercase;
+}
+@media (max-width: 1159px) {
+  .card_total {
+    grid-template-columns: 0.7fr 1.3fr;
+    height: 14em;
+  }
+  .card_total .card_total__descrip-title {
+    margin-bottom: 1em;
+  }
+}
+@media (max-width: 1030px) {
+  .card_total {
+    height: 13em;
+  }
+  .card_total .card_total__descrip {
+    padding-right: 30px;
+    margin: 10px;
+  }
+}
+@media (max-width: 932px) {
+  .card_total {
+    grid-template-columns: 1fr;
+    height: 35em;
+    max-width: 25em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card_total .card_total__header {
+    grid-column: 1;
+    grid-row: 1;
+    position: inherit;
+  }
+  .card_total .card_total__header-img {
+    position: inherit;
+  }
+  .card_total .card_total__descrip {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .card_total .card_total__descrip {
+    padding-right: 20px;
+    margin-top: 30px;
+  }
+}
+
+.ruta {
+  width: 50%;
+  margin-top: 5em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ruta__pieza {
+  background-color: #000;
+  padding: 2px;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: auto;
+  height: 200px;
+  margin-bottom: 2em;
+  transition: all 1s;
+}
+.ruta__pieza-header {
+  position: relative;
+  background-color: #CEFAAB;
+}
+.ruta__pieza-header-img {
+  width: 100%;
+  height: 200px;
+  background-color: #CEFAAB;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.ruta__pieza-descrip {
+  padding: 2em 4em 0 1em;
+}
+.ruta__pieza-descrip span {
+  text-transform: uppercase;
+  font-family: "menu", sans-serif;
+  font-size: 0.9em;
+  color: #000;
+  background-color: #CEFAAB;
+  padding: 0.5em;
+}
+.ruta__pieza-descrip p {
+  font-family: "titulos", sans-serif;
+  font-size: 1em;
+  text-transform: uppercase;
+  color: #CEFAAB;
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+.ruta__pieza-descrip small {
+  font-family: "texto", sans-serif;
+  letter-spacing: 1px;
+  color: #CEFAAB;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+.ruta__pieza:hover {
+  border: solid 1px #CEFAAB;
+}
+@media (max-width: 928px) {
+  .ruta {
+    width: 90%;
+  }
+}
+@media (max-width: 928px) {
+  .ruta .ruta__pieza, .ruta .ruta__pieza-header-img {
+    height: 150px;
+  }
+  .ruta .ruta__pieza-descrip {
+    padding: 1em 1em 0 1em;
+  }
+}
+
+.pieza1 {
+  background-image: url("https://mutante.org/wp-content/uploads/2025/05/01-100-jpg.webp");
+}
+
+.pieza2 {
+  background-image: url("https://mutante.org/wp-content/uploads/2025/05/Poster-jpg.webp");
+}
+
+.pieza3 {
+  background-image: url("https://mutante.org/wp-content/uploads/2025/05/01-100_11zon.jpg");
+}
+
 @media (max-width: 1000px) {
   .tierras, .energia {
     grid-template-columns: 1fr;
