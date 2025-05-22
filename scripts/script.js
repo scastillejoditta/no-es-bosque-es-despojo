@@ -19,3 +19,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+const panels = document.querySelectorAll('.panel');
+  const links = document.querySelectorAll('#indicator .nav-link');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const index = Array.from(panels).indexOf(entry.target);
+        links.forEach(link => link.classList.remove('active'));
+        if (links[index]) links[index].classList.add('active');
+      }
+    });
+  }, {
+    threshold: 0.5 // panel debe estar al menos 50% visible
+  });
+
+  panels.forEach(panel => observer.observe(panel));

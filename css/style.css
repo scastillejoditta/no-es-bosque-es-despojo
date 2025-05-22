@@ -206,7 +206,6 @@ html, body {
 
 .titulos, h2, h1 {
   color: #CEFAAB;
-  font-weight: bold;
   text-transform: uppercase;
   font-family: "titulos", sans-serif;
 }
@@ -214,6 +213,46 @@ html, body {
 h1 {
   width: 42%;
   font-size: 3em;
+}
+@media (max-width: 1227px) {
+  h1 {
+    width: 50%;
+  }
+}
+@media (max-width: 1034px) {
+  h1 {
+    width: 60%;
+  }
+}
+@media (max-width: 867px) {
+  h1 {
+    width: 70%;
+  }
+}
+@media (max-width: 747px) {
+  h1 {
+    width: 80%;
+  }
+}
+@media (max-width: 658px) {
+  h1 {
+    width: 90%;
+  }
+}
+@media (max-width: 595px) {
+  h1 {
+    font-size: 2.8em;
+  }
+}
+@media (max-width: 589px) {
+  h1 {
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 495px) {
+  h1 {
+    font-size: 2.1em;
+  }
 }
 
 h2 {
@@ -308,11 +347,17 @@ small {
   white-space: nowrap;
 }
 #indicator .nav-link.active {
-  background: none;
-  font-size: 1em;
+  font-size: 0.8em;
+  transform: scale(1.2);
+  color: rgb(255, 214.9469026549, 193);
+  text-shadow: 2px 3px 6px #000;
+  transition: all 0.3s ease;
+  background-color: transparent;
 }
 #indicator .nav-link.active i.material-icons {
   margin-right: 0;
+  transform: scale(1.3);
+  transition: all 0.3s ease;
 }
 #indicator .nav-link:nth-child(1):hover::after {
   content: "Intro";
@@ -422,11 +467,11 @@ small {
   margin-right: 2em;
 }
 
-.cards {
+.cards, .energia, .tierras {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 80%;
   max-width: 1200px;
@@ -435,15 +480,12 @@ small {
   gap: 1rem;
 }
 
-.card {
+.card, .energia__col1, .energia__col3 {
   width: 100%;
   height: 25em;
   padding: 3px;
   background-color: #000;
   transition: all 0.8s;
-}
-.card:hover {
-  border: solid 1px #FFB68E;
 }
 .card__header {
   position: relative;
@@ -465,7 +507,6 @@ small {
   left: 0;
   padding: 5px;
   color: #000;
-  background-color: #FFB68E;
   font-family: "menu", sans-serif;
   display: inline-block;
   font-size: small;
@@ -482,7 +523,6 @@ small {
 .card__descrip {
   margin: 20px;
   line-height: 1;
-  color: #FFB68E;
 }
 .card__descrip p {
   line-height: 1;
@@ -493,10 +533,26 @@ small {
   text-transform: uppercase;
 }
 
+.tierras {
+  gap: 1rem;
+}
+.tierras .card__header-tag {
+  background-color: #FFB68E;
+}
+.tierras .card__descrip, .tierras .card__header-title {
+  color: #FFB68E;
+}
+.tierras .card:hover, .tierras .energia__col1:hover, .tierras .energia__col3:hover {
+  border: solid 1px #FFB68E;
+}
+.tierras .card, .tierras .energia__col1, .tierras .energia__col3 {
+  max-width: 25em;
+}
+
 .youtube-wrapper {
   position: relative;
   width: 80%;
-  max-width: 80%;
+  max-width: 1200px;
   aspect-ratio: 16/9;
   cursor: pointer;
   margin: 2em auto;
@@ -542,7 +598,7 @@ small {
   font-family: "titulos", sans-serif;
   font-size: 2em;
   text-align: left;
-  color: #fff;
+  color: #FFB68E;
   text-transform: uppercase;
 }
 .youtube-wrapper:hover {
@@ -552,35 +608,104 @@ small {
   border: solid 1px #FFB68E;
 }
 
-.embed {
-  min-width: 80%;
-  max-width: 80%;
-  margin: 0 auto;
+.energia {
+  grid-template-columns: 1fr 0.5fr 1fr;
+  grid-template-rows: auto;
+}
+.energia .card__header-tag {
+  background-color: #CEFAAB;
+}
+.energia .card__descrip, .energia .card__header-title {
+  color: #CEFAAB;
+}
+.energia .card:hover, .energia .energia__col1:hover, .energia .energia__col3:hover {
+  border: solid 1px #CEFAAB;
+}
+.energia__col2 {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+  display: block;
+  justify-content: flex-start;
+}
+
+.map-line-container, #rio_mobile, #rio_desktop {
   position: relative;
-  top: 0;
-  left: 0;
-  padding-top: 56.25%;
-  border: solid 1px #FFB68E;
 }
-.embed__tag {
+.map-line-container svg, #rio_mobile svg, #rio_desktop svg {
+  width: 100%;
+  height: 100%;
+}
+.map-line-container .wavy-line, #rio_mobile .wavy-line, #rio_desktop .wavy-line {
+  stroke: #CEFAAB;
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 4 2 8 3 5;
+  stroke-dashoffset: 0;
+  animation: flowRío 3s linear infinite;
+}
+.map-line-container .marker, #rio_mobile .marker, #rio_desktop .marker {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 5px;
-  color: #000;
-  background-color: #FFB68E;
-  font-family: "menu", sans-serif;
-  display: inline-block;
-  font-size: small;
-  border-bottom-left-radius: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  opacity: 1;
 }
-.embed__video {
-  position: absolute;
-  height: 92%;
-  width: 95%;
-  top: 3%;
-  left: 3%;
-  border: none;
+.map-line-container .marker .dot, #rio_mobile .marker .dot, #rio_desktop .marker .dot {
+  width: 0.8em;
+  height: 0.8em;
+  background-color: #CEFAAB;
+  border-radius: 50%;
+  box-shadow: 0 0 4px #CEFAAB;
+}
+.map-line-container .marker .label, #rio_mobile .marker .label, #rio_desktop .marker .label {
+  font-size: 0.8em;
+  color: #CEFAAB;
+  white-space: nowrap;
+}
+
+#rio_desktop {
+  width: 3em;
+  height: 21em;
+  margin: 2em auto;
+}
+#rio_desktop .marker {
+  transform: translate(20%, 200%);
+}
+
+#rio_mobile {
+  width: 100%;
+  height: auto;
+  margin: 2em auto;
+  display: none;
+}
+#rio_mobile .marker {
+  transform: translate(0, 0);
+  gap: 1rem;
+}
+
+@keyframes flowRío {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -28;
+  }
+}
+@media (max-width: 1000px) {
+  .tierras, .energia {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  #rio_desktop {
+    display: none;
+  }
+  #rio_mobile {
+    display: block;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
