@@ -254,6 +254,11 @@ h1 {
     font-size: 2.1em;
   }
 }
+@media (max-width: 421px) {
+  h1 {
+    font-size: 1.9em;
+  }
+}
 
 h2 {
   font-size: 2em;
@@ -433,6 +438,11 @@ small {
   height: 100%;
   object-fit: cover;
 }
+@media (max-width: 1200px) {
+  .apertura {
+    top: 70px;
+  }
+}
 
 .encabezado {
   display: grid;
@@ -586,7 +596,7 @@ small {
   transform: translate(-50%, -50%);
   width: 68px;
   height: 48px;
-  background: url("https://img.icons8.com/ios-filled/100/ffffff/play-button-circled.png") no-repeat center;
+  background: url("../assets/images/play-button-rosa.png") no-repeat center;
   background-size: contain;
   opacity: 0.8;
 }
@@ -617,7 +627,9 @@ small {
     left: 13%;
   }
   .youtube-wrapper .youtube-thumbnail .play-button {
-    left: 7%;
+    top: 40%;
+    left: 0;
+    transform: scale(0.7);
   }
 }
 .youtube-wrapper:hover {
@@ -710,7 +722,7 @@ small {
   display: none;
 }
 #rio_mobile .marker {
-  transform: translate(0, 0);
+  transform: translate(0, -10px);
   gap: 1rem;
 }
 
@@ -719,7 +731,7 @@ small {
     stroke-dashoffset: 0;
   }
   100% {
-    stroke-dashoffset: -28;
+    stroke-dashoffset: -89;
   }
 }
 .tierras {
@@ -755,34 +767,6 @@ small {
   }
 }
 
-#social .card__header-tag, #social .card_total__header-tag {
-  background-color: #CEFAAB;
-}
-#social .card__descrip,
-#social .card__header-title,
-#social .card_total__descrip-title,
-#social .card_total__descrip-autor,
-#social .card_total__descrip p {
-  color: #CEFAAB;
-}
-#social .card:hover, #social .energia__col1:hover, #social .energia__col3:hover, #social .card_total:hover {
-  border: solid 1px #CEFAAB;
-}
-
-#etica .card__header-tag, #etica .card_total__header-tag {
-  background-color: #FFB68E;
-}
-#etica .card__descrip,
-#etica .card__header-title,
-#etica .card_total__descrip-title,
-#etica .card_total__descrip-autor,
-#etica .card_total__descrip p {
-  color: #FFB68E;
-}
-#etica .card:hover, #etica .energia__col1:hover, #etica .energia__col3:hover, #etica .card_total:hover {
-  border: solid 1px #FFB68E;
-}
-
 .card_total {
   margin-top: 5em;
   width: 100%;
@@ -804,7 +788,7 @@ small {
   top: 0px;
   width: 100%;
   display: block;
-  height: auto;
+  height: 99%;
   opacity: 0.7;
   overflow: hidden;
   padding-bottom: 0;
@@ -864,7 +848,7 @@ small {
 @media (max-width: 932px) {
   .card_total {
     grid-template-columns: 1fr;
-    height: 35em;
+    height: 31em;
     max-width: 25em;
     margin-left: auto;
     margin-right: auto;
@@ -872,19 +856,44 @@ small {
   .card_total .card_total__header {
     grid-column: 1;
     grid-row: 1;
-    position: inherit;
-  }
-  .card_total .card_total__header-img {
-    position: inherit;
+    height: 15em;
   }
   .card_total .card_total__descrip {
     grid-column: 1;
     grid-row: 2;
-  }
-  .card_total .card_total__descrip {
+    position: relative;
+    top: 0;
     padding-right: 20px;
-    margin-top: 30px;
+    margin-top: 10px;
   }
+}
+
+#etica .card__header-tag, #etica .card_total__header-tag {
+  background-color: #FFB68E;
+}
+#etica .card__descrip,
+#etica .card__header-title,
+#etica .card_total__descrip-title,
+#etica .card_total__descrip-autor,
+#etica .card_total__descrip p {
+  color: #FFB68E;
+}
+#etica .card:hover, #etica .energia__col1:hover, #etica .energia__col3:hover, #etica .card_total:hover {
+  border: solid 1px #FFB68E;
+}
+
+#social .card__header-tag, #social .card_total__header-tag {
+  background-color: #CEFAAB;
+}
+#social .card__descrip,
+#social .card__header-title,
+#social .card_total__descrip-title,
+#social .card_total__descrip-autor,
+#social .card_total__descrip p {
+  color: #CEFAAB;
+}
+#social .card:hover, #social .energia__col1:hover, #social .energia__col3:hover, #social .card_total:hover {
+  border: solid 1px #CEFAAB;
 }
 
 .ruta {
@@ -895,12 +904,12 @@ small {
 }
 .ruta__pieza {
   background-color: #000;
+  height: 200px;
   padding: 2px;
+  margin-bottom: 2em;
   display: grid;
   grid-template-columns: 0.5fr 1fr;
   grid-template-rows: auto;
-  height: 200px;
-  margin-bottom: 2em;
   transition: all 1s;
 }
 .ruta__pieza-header {
@@ -909,7 +918,7 @@ small {
 }
 .ruta__pieza-header-img {
   width: 100%;
-  height: 200px;
+  height: 99%;
   background-color: #CEFAAB;
   background-size: contain;
   background-position: center center;
@@ -950,7 +959,7 @@ small {
   }
 }
 @media (max-width: 928px) {
-  .ruta .ruta__pieza, .ruta .ruta__pieza-header-img {
+  .ruta .ruta__pieza {
     height: 150px;
   }
   .ruta .ruta__pieza-descrip {

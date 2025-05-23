@@ -50,6 +50,10 @@ h1 {
     {
       font-size: 2.1em;
     }
+      @media (max-width: 421px)
+    {
+      font-size: 1.9em;
+    }
 }
 
 h2 {
@@ -76,7 +80,6 @@ small
 {
     width: 90%;
     margin-left: 10px;
-    //margin-right: 5%;
 }
 
 .intro 
@@ -249,7 +252,14 @@ small
       width: 100%;
       height: 100%;
       object-fit: cover; // llena el contenedor recortando si es necesario
+      //border: $verde solid 2px;
     }
+
+    @media (max-width: 1200px)
+    {
+      top: 70px;
+    }
+
 } 
 
 .encabezado {
@@ -448,7 +458,8 @@ small
       transform: translate(-50%, -50%);
       width: 68px;
       height: 48px;
-      background: url('https://img.icons8.com/ios-filled/100/ffffff/play-button-circled.png') no-repeat center;
+      //background: url('https://img.icons8.com/ios-filled/100/ffffff/play-button-circled.png') no-repeat center;
+      background: url('../assets/images/play-button-rosa.png') no-repeat center;
       background-size: contain;
       opacity: 0.8;
     }
@@ -486,7 +497,10 @@ small
         left: 13%;
       }
       .play-button {
-        left: 7%;
+        top: 40%;
+        left: 0;
+        //transform: translate(-10%, -50%);
+        transform: scale(0.7);
       }
     }
   }
@@ -598,7 +612,7 @@ small
 
   .marker 
   { 
-    transform: translate(0, 0); // coordenadas que pediste
+    transform: translate(0, -10px); 
     gap: 1rem;
   }
 
@@ -610,7 +624,7 @@ small
     stroke-dashoffset: 0;
   }
   100% {
-    stroke-dashoffset: -28; // suma del patrón: 6+4+2+8+3+5
+    stroke-dashoffset: -89;//-28; // suma del patrón: 6+4+2+8+3+5
   }
 }
 
@@ -635,16 +649,6 @@ small
     {
       width: 95%;
     }
-}
-
-#social
-{
-  @include colorear_cards($verde);
-}
-
-#etica
-{
-  @include colorear_cards($rosa);
 }
 
 .card_total
@@ -674,7 +678,7 @@ small
             top: 0px;
             width: 100%;
             display:block;
-            height: auto;
+            height: 99%;
             opacity: .7;
             overflow: hidden;
             padding-bottom: 0;
@@ -731,7 +735,6 @@ small
       .card_total__descrip-title {margin-bottom: 1em; }
       grid-template-columns: 0.7fr 1.3fr;
       height: 14em;
-
     }
 
     @media (max-width: 1030px)
@@ -746,18 +749,31 @@ small
     @media (max-width: 932px)
     {
       grid-template-columns: 1fr;
-      height: 35em;
+      height: 31em;
       max-width: 25em;
       margin-left: auto;
       margin-right: auto;
-      .card_total__header {grid-column: 1; grid-row: 1; position: inherit;}
-      .card_total__header-img {position: inherit;}
-      .card_total__descrip {grid-column: 1; grid-row: 2;}
+      .card_total__header {grid-column: 1; grid-row: 1; height:15em;}
+
       .card_total__descrip {
+        grid-column: 1; 
+        grid-row: 2; 
+        position: relative; 
+        top:0;
         padding-right: 20px;
-        margin-top: 30px;
+        margin-top: 10px;
       }
     }
+}
+
+#etica
+{
+  @include colorear_cards($rosa);
+}
+
+#social
+{
+  @include colorear_cards($verde);
 }
 
   .ruta
@@ -770,12 +786,14 @@ small
     &__pieza 
     {
       background-color: #000;
-      padding: 2px;
-      display: grid;
-      grid-template-columns: 0.5fr 1fr;      // Dos columnas iguales
-      grid-template-rows: auto;
       height:200px;
+      padding: 2px;
       margin-bottom: 2em;
+
+      display: grid;
+      grid-template-columns: 0.5fr 1fr; 
+      grid-template-rows: auto;
+      
       transition: all 1s;
 
       &-header
@@ -786,7 +804,7 @@ small
         &-img {
           @extend .card__header-img;
           width: 100%;
-          height: 200px; 
+          height: 99%; 
           background-color: $verde; 
           background-size: contain;         
           background-position: center center;
@@ -839,7 +857,7 @@ small
 
      @media (max-width: 928px)
     {
-      .ruta__pieza, .ruta__pieza-header-img {height:150px;}
+      .ruta__pieza {height:150px;}
       .ruta__pieza-descrip
       {padding: 1em 1em 0 1em;}
     }
