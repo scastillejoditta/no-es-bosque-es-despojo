@@ -632,6 +632,20 @@ small {
     transform: scale(0.7);
   }
 }
+@media (max-width: 650px) {
+  .youtube-wrapper .youtube-thumbnail .title {
+    font-size: 1em;
+    top: 48%;
+  }
+  .youtube-wrapper .youtube-thumbnail .play-button {
+    top: -6.5px;
+    left: 85px;
+    transform: scale(0.6);
+  }
+  .youtube-wrapper .youtube-thumbnail:hover .play-button {
+    background-color: #000;
+  }
+}
 .youtube-wrapper:hover {
   border: solid 1px #FFB68E;
 }
@@ -848,7 +862,7 @@ small {
 @media (max-width: 932px) {
   .card_total {
     grid-template-columns: 1fr;
-    height: 31em;
+    height: 33em;
     max-width: 25em;
     margin-left: auto;
     margin-right: auto;

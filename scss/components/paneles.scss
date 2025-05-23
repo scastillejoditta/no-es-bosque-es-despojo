@@ -503,6 +503,23 @@ small
         transform: scale(0.7);
       }
     }
+
+    @media (max-width: 650px)
+    {
+      .title 
+      { 
+        font-size: 1em;
+        top: 48%;
+      }
+      .play-button {
+        top: -6.5px;
+        left: 85px;
+        transform: scale(0.6);
+      }
+      &:hover {
+        .play-button {background-color: #000;}
+      }
+    }
   }
 
     &:hover
@@ -749,7 +766,7 @@ small
     @media (max-width: 932px)
     {
       grid-template-columns: 1fr;
-      height: 31em;
+      height: 33em;
       max-width: 25em;
       margin-left: auto;
       margin-right: auto;
