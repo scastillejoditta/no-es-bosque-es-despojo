@@ -8,7 +8,6 @@ html, body {
 .titulos 
 {
     color: $verde;
-   // font-weight: bold;
     text-transform: uppercase;
     font-family: 'titulos', sans-serif;
 }
@@ -221,21 +220,35 @@ small
     margin-right: auto;
 }
 
+.fondo_menta
+{background-image: url("../assets/images/5_Arboles_texturas.svg");}
+.fondo_mandarina
+{background-image: url("../assets/images/6_Arboles_texturas.svg");}
+.rosa_tierra
+{background: url("../assets/images/separador_rosa_arbolinea.png") no-repeat center;}
+.verde_empresa
+{background: url("../assets/images/separador_menta_cintillo.png") no-repeat center;}
+.rosa_empresa
+{background: url("../assets/images/separador_rosa_cintillo.png") no-repeat center;}
+.verde_tierra
+{background: url("../assets/images/separador_menta_arbol.png") no-repeat center;}
+
 .separador
 {
     height: 101vh;
     min-width: 100%;
     margin: 0;
     padding: 0;
-    background-size: cover;
+    background-size: 100%;//cover;
     opacity: .9;
     margin: 3em 0 0 0;
 }
 
-.fondo_menta
-{background-image: url("../assets/images/5_Arboles_texturas.svg");}
-.fondo_mandarina
-{background-image: url("../assets/images/6_Arboles_texturas.svg");}
+.separador_peq
+{
+  @extend .separador;
+  height: 100px;
+}
 
 .apertura 
 {
