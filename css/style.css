@@ -52,7 +52,7 @@ ul {
   top: 0;
   left: 0;
   width: 100%;
-  box-shadow: 0 8px 60px black;
+  box-shadow: 0 8px 60px #000000;
   z-index: 2;
 }
 
@@ -90,7 +90,7 @@ ul {
   transition: border-bottom 0.3s linear;
 }
 .navbar-nav .nav-item a {
-  color: black;
+  color: #000000;
   border-bottom: 4px #fff solid;
 }
 .navbar-nav .nav-item a:hover {
@@ -331,20 +331,26 @@ small {
   align-items: center;
   justify-content: flex-end;
   position: relative;
-  font-size: 0.1em;
+  font-size: 1em;
   color: #FFB68E;
   margin: 0;
-  padding: 0.25rem;
+  padding: 0;
   transition: all 0.3s ease;
-  text-shadow: 1px 2px 4px #000;
+  gap: 0;
 }
-#indicator .nav-link i.material-icons {
+#indicator .nav-link div.icons {
   margin: 0;
+  padding: 0;
   transition: margin 0.3s ease;
+  width: 2em;
+  height: 2em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 #indicator .nav-link:hover {
-  font-size: 0.8em;
-  transform: scale(1.2);
+  width: 2.3em;
+  height: 2.3em;
 }
 #indicator .nav-link:hover::after {
   opacity: 1;
@@ -357,17 +363,34 @@ small {
   white-space: nowrap;
 }
 #indicator .nav-link.active {
-  font-size: 0.8em;
-  transform: scale(1.2);
-  color: rgb(255, 214.9469026549, 193);
+  color: hsl(21.2389380531, 100%, 127.8431372549%);
   text-shadow: 2px 3px 6px #000;
   transition: all 0.3s ease;
   background-color: transparent;
 }
-#indicator .nav-link.active i.material-icons {
+#indicator .nav-link.active div.icons {
   margin-right: 0;
-  transform: scale(1.3);
+  width: 2.5em;
+  height: 2.5em;
   transition: all 0.3s ease;
+}
+#indicator .nav-link:nth-child(1) .icons {
+  background: url("../assets/images/ico_intro.svg") no-repeat center;
+}
+#indicator .nav-link:nth-child(2) .icons {
+  background-image: url("../assets/images/ico_tierras.svg");
+}
+#indicator .nav-link:nth-child(3) .icons {
+  background-image: url("../assets/images/ico_energia.svg");
+}
+#indicator .nav-link:nth-child(4) .icons {
+  background-image: url("../assets/images/ico_etica.svg");
+}
+#indicator .nav-link:nth-child(5) .icons {
+  background-image: url("../assets/images/ico_social.svg");
+}
+#indicator .nav-link:nth-child(6) .icons {
+  background-image: url("../assets/images/ico_equipo.svg");
 }
 #indicator .nav-link:nth-child(1):hover::after {
   content: "Intro";
@@ -446,8 +469,10 @@ small {
 
 .apertura {
   position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
+  left: 10%;
+  top: 60px;
+  width: 80%;
+  padding-bottom: 37.25%;
   overflow: hidden;
 }
 .apertura__video {
@@ -461,6 +486,9 @@ small {
 @media (max-width: 1200px) {
   .apertura {
     top: 70px;
+    left: 0;
+    width: 100%;
+    padding-bottom: 56.25%;
   }
 }
 
@@ -1011,6 +1039,60 @@ small {
 
 .pieza3 {
   background-image: url("https://mutante.org/wp-content/uploads/2025/05/01-100_11zon.jpg");
+}
+
+.creditos {
+  width: 50%;
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.creditos hr {
+  border: solid 1px #FFB68E;
+  width: 50%;
+  margin-top: 2em;
+}
+.creditos p {
+  font-family: "texto", sans-serif;
+  font-size: 0.8em;
+}
+.creditos p span {
+  font-family: "titulos", sans-serif;
+  font-size: 1em;
+}
+@media (max-width: 843px) {
+  .creditos {
+    width: 100%;
+  }
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+  gap: 10px;
+}
+.logos__logo {
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.logos__logo:nth-child(1) {
+  background-image: url("../assets/images/logo_mutante.webp");
+}
+.logos__logo:nth-child(2) {
+  background-image: url("../assets/images/laligacontraesilencio.jpg");
+}
+.logos__logo:nth-child(3) {
+  background-image: url("../assets/images/logorunrunes.webp");
 }
 
 @media (max-width: 1000px) {
