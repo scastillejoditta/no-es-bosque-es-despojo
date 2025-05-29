@@ -204,6 +204,15 @@ html, body {
   overflow-x: hidden;
 }
 
+b {
+  font-family: "titulos", sans-serif;
+  letter-spacing: 1.5px;
+}
+
+hr {
+  margin: 3em 3em 3em 0;
+}
+
 .titulos, h2, h1 {
   color: #CEFAAB;
   text-transform: uppercase;
@@ -213,6 +222,11 @@ html, body {
 h1 {
   width: 42%;
   font-size: 3em;
+}
+@media (min-width: 1501px) {
+  h1 {
+    width: 40%;
+  }
 }
 @media (max-width: 1227px) {
   h1 {
@@ -276,15 +290,12 @@ small {
   font-family: "menu", sans-serif;
 }
 
-.texto {
-  width: 90%;
-  margin-left: 10px;
-}
-
 .intro {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  max-width: 1200px;
+  text-align: left;
 }
 
 .menta {
@@ -295,10 +306,11 @@ small {
 }
 .menta .enlace {
   color: #CEFAAB;
-  border-bottom: #FFB68E dotted 2px;
+  border-bottom: #CEFAAB dotted 2px;
 }
 .menta .enlace:hover {
   color: #FFB68E;
+  border-color: #FFB68E;
 }
 
 .rosa {
@@ -309,10 +321,11 @@ small {
 }
 .rosa .enlace {
   color: #FFB68E;
-  border-bottom: #CEFAAB dotted 2px;
+  border-bottom: #FFB68E dotted 2px;
 }
 .rosa .enlace:hover {
   color: #CEFAAB;
+  border-color: #CEFAAB;
 }
 
 #principal {
@@ -332,7 +345,7 @@ small {
   justify-content: flex-end;
   position: relative;
   font-size: 1em;
-  color: #FFB68E;
+  color: #CEFAAB;
   margin: 0;
   padding: 0;
   transition: all 0.3s ease;
@@ -375,7 +388,7 @@ small {
   transition: all 0.3s ease;
 }
 #indicator .nav-link:nth-child(1) .icons {
-  background: url("../assets/images/ico_intro.svg") no-repeat center;
+  background-image: url("../assets/images/ico_intro.svg");
 }
 #indicator .nav-link:nth-child(2) .icons {
   background-image: url("../assets/images/ico_tierras.svg");
@@ -500,6 +513,9 @@ small {
   align-items: left;
   justify-content: flex-start;
   margin-bottom: 2em;
+  max-width: 1505px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .encabezado .fila1 {
   grid-column: 1/3;
@@ -552,41 +568,46 @@ small {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
+  justify-content: flex-start;
+  width: 100%;
   max-width: 1200px;
   padding: 0;
   margin: 4em auto;
   gap: 1rem;
 }
 
-.card, .energia__col1, .energia__col3 {
+.card {
   width: 100%;
   min-height: 22em;
-  padding: 3px;
+  padding: 0;
   background-color: #000;
   transition: all 0.8s;
-  max-width: 25em;
+  align-self: flex-start;
 }
 .card__header {
   position: relative;
-  height: 15em;
-  text-transform: uppercase;
-}
-.card__header-img, .ruta__pieza-header-img {
-  position: absolute;
-  top: 0px;
   width: 100%;
-  display: block;
-  height: 15em;
-  opacity: 0.7;
+  padding-top: 66.66%;
   overflow: hidden;
 }
-.card__header-tag {
+.card__header-img, .ruta__pieza-header-img, .card_total__header-img, .energia .card2__header-img {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  display: block;
+  padding: 3px;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+.card__header-tag, .card_total__header-tag, .energia .card2__header-tag {
+  position: absolute;
+  top: 4px;
+  left: 4px;
   padding: 5px;
   color: #000;
   font-family: "menu", sans-serif;
@@ -597,24 +618,39 @@ small {
 }
 .card__header-title {
   position: absolute;
-  top: 60%;
-  left: 5px;
+  top: 50%;
+  left: 10px;
+  right: 10px;
+  line-height: 1;
+}
+.card__header-title h3 {
   font-family: "titulos", sans-serif;
-  font-size: 1.2em;
+  font-size: 1.3em;
   text-align: left;
+  text-transform: uppercase;
 }
-.card__descrip {
-  margin: 20px;
-  line-height: 1;
-  font-size: 0.8em;
-}
-.card__descrip p {
-  line-height: 1;
-  margin-top: 10px;
-}
-.card__descrip-autor {
+.card__header-title small {
   font-family: "texto", sans-serif;
   text-transform: uppercase;
+  margin: 0;
+}
+.card__header-title p {
+  margin-top: 10px;
+  padding-bottom: 0;
+  font-size: 0.8em;
+}
+@media (max-width: 536px) {
+  .card .card__header-title {
+    top: 40%;
+  }
+  .card .card__header-title h3 {
+    font-size: 1.2em;
+  }
+}
+@media (max-width: 489px) {
+  .card .card__header-title {
+    top: 40%;
+  }
 }
 
 .youtube-wrapper {
@@ -705,7 +741,7 @@ small {
   grid-template-columns: 1fr 0.5fr 1fr;
   grid-template-rows: auto;
 }
-.energia .card__header-tag, .energia .card_total__header-tag {
+.energia .card__header-tag, .energia .card2__header-tag, .energia .card_total__header-tag {
   background-color: #CEFAAB;
 }
 .energia .card__descrip,
@@ -715,8 +751,46 @@ small {
 .energia .card_total__descrip p {
   color: #CEFAAB;
 }
-.energia .card:hover, .energia .energia__col1:hover, .energia .energia__col3:hover, .energia .card_total:hover {
+.energia .card:hover .card__header-img, .energia .card:hover .ruta__pieza-header-img, .energia .card:hover .card_total__header-img, .energia .card:hover .card2__header-img {
+  border-color: #CEFAAB;
+}
+.energia .card_total:hover, .energia .card2:hover {
   border: solid 1px #CEFAAB;
+}
+.energia .card2 {
+  width: 100%;
+  min-height: 22em;
+  padding: 0;
+  background-color: #000;
+  transition: all 0.8s;
+  align-self: flex-start;
+}
+.energia .card2__header {
+  position: relative;
+  width: 100%;
+  padding-top: 66.66%;
+  overflow: hidden;
+}
+.energia .card2__header-title {
+  position: absolute;
+  top: 60%;
+  left: 5%;
+  font-family: "Titulos", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.3em;
+}
+.energia .card2__descrip {
+  margin: 20px;
+  line-height: 1;
+  font-size: 0.8em;
+}
+.energia .card2__descrip-autor {
+  font-family: "texto", sans-serif;
+  text-transform: uppercase;
+}
+.energia .card2__descrip p {
+  line-height: 1;
+  margin-top: 10px;
 }
 .energia__col2 {
   display: grid;
@@ -799,7 +873,7 @@ small {
 .tierras {
   gap: 1rem;
 }
-.tierras .card__header-tag, .tierras .card_total__header-tag {
+.tierras .card__header-tag, .tierras .energia .card2__header-tag, .energia .tierras .card2__header-tag, .tierras .card_total__header-tag {
   background-color: #FFB68E;
 }
 .tierras .card__descrip,
@@ -809,14 +883,16 @@ small {
 .tierras .card_total__descrip p {
   color: #FFB68E;
 }
-.tierras .card:hover, .tierras .energia__col1:hover, .tierras .energia__col3:hover, .tierras .card_total:hover {
+.tierras .card:hover .card__header-img, .tierras .card:hover .ruta__pieza-header-img, .tierras .card:hover .card_total__header-img, .tierras .card:hover .energia .card2__header-img, .energia .tierras .card:hover .card2__header-img {
+  border-color: #FFB68E;
+}
+.tierras .card_total:hover, .tierras .card2:hover {
   border: solid 1px #FFB68E;
 }
 
 .card_horizontal {
   width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
 }
 @media (max-width: 1159px) {
   .card_horizontal {
@@ -832,7 +908,7 @@ small {
 .card_total {
   margin-top: 5em;
   width: 100%;
-  height: 19em;
+  height: 20em;
   padding: 3px;
   background-color: #000;
   display: grid;
@@ -844,27 +920,6 @@ small {
   grid-column: 1;
   position: relative;
   text-transform: uppercase;
-}
-.card_total__header-img {
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  display: block;
-  height: 99%;
-  opacity: 0.7;
-  overflow: hidden;
-  padding-bottom: 0;
-}
-.card_total__header-tag {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 5px;
-  color: #000;
-  font-family: "menu", sans-serif;
-  display: inline-block;
-  font-size: small;
-  border-bottom-left-radius: 0;
 }
 .card_total__descrip {
   grid-column: 2;
@@ -930,7 +985,7 @@ small {
   }
 }
 
-#etica .card__header-tag, #etica .card_total__header-tag {
+#etica .card__header-tag, #etica .energia .card2__header-tag, .energia #etica .card2__header-tag, #etica .card_total__header-tag {
   background-color: #FFB68E;
 }
 #etica .card__descrip,
@@ -940,11 +995,14 @@ small {
 #etica .card_total__descrip p {
   color: #FFB68E;
 }
-#etica .card:hover, #etica .energia__col1:hover, #etica .energia__col3:hover, #etica .card_total:hover {
+#etica .card:hover .card__header-img, #etica .card:hover .ruta__pieza-header-img, #etica .card:hover .energia .card2__header-img, .energia #etica .card:hover .card2__header-img, #etica .card:hover .card_total__header-img {
+  border-color: #FFB68E;
+}
+#etica .card_total:hover, #etica .card2:hover {
   border: solid 1px #FFB68E;
 }
 
-#social .card__header-tag, #social .card_total__header-tag {
+#social .card__header-tag, #social .energia .card2__header-tag, .energia #social .card2__header-tag, #social .card_total__header-tag {
   background-color: #CEFAAB;
 }
 #social .card__descrip,
@@ -954,15 +1012,17 @@ small {
 #social .card_total__descrip p {
   color: #CEFAAB;
 }
-#social .card:hover, #social .energia__col1:hover, #social .energia__col3:hover, #social .card_total:hover {
+#social .card:hover .card__header-img, #social .card:hover .ruta__pieza-header-img, #social .card:hover .energia .card2__header-img, .energia #social .card:hover .card2__header-img, #social .card:hover .card_total__header-img {
+  border-color: #CEFAAB;
+}
+#social .card_total:hover, #social .card2:hover {
   border: solid 1px #CEFAAB;
 }
 
 .ruta {
   width: 50%;
   margin-top: 5em;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
 }
 .ruta__pieza {
   background-color: #000;
@@ -1029,6 +1089,45 @@ small {
   }
 }
 
+.creditos {
+  display: flex;
+  width: 100%;
+  margin-left: 0;
+}
+.creditos div {
+  width: 50%;
+  margin: 0;
+}
+.creditos div .cargo {
+  font-family: "titulos", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: 2em;
+  font-size: 1em;
+}
+.creditos div .nombre {
+  font-family: "texto", sans-serif;
+  margin-left: 3em;
+  padding-bottom: 0;
+  margin-bottom: 0.5;
+  line-height: 100%;
+  font-size: 0.9em;
+}
+.creditos div .subt {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-style: italic;
+  margin-top: 2em;
+}
+@media (max-width: 740px) {
+  .creditos {
+    display: block;
+  }
+  .creditos div {
+    width: 100%;
+  }
+}
+
 .pieza1 {
   background-image: url("https://mutante.org/wp-content/uploads/2025/05/01-100-jpg.webp");
 }
@@ -1041,36 +1140,13 @@ small {
   background-image: url("https://mutante.org/wp-content/uploads/2025/05/01-100_11zon.jpg");
 }
 
-.creditos {
-  width: 50%;
-  margin-top: 3em;
-  margin-left: auto;
-  margin-right: auto;
-}
-.creditos hr {
-  border: solid 1px #FFB68E;
-  width: 50%;
-  margin-top: 2em;
-}
-.creditos p {
-  font-family: "texto", sans-serif;
-  font-size: 0.8em;
-}
-.creditos p span {
-  font-family: "titulos", sans-serif;
-  font-size: 1em;
-}
-@media (max-width: 843px) {
-  .creditos {
-    width: 100%;
-  }
-}
-
 .logos {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0;
+  margin-top: 10em;
+  margin-bottom: 5em;
   padding: 0;
   transition: all 0.3s ease;
   gap: 10px;
@@ -1086,13 +1162,28 @@ small {
   background-position: center;
 }
 .logos__logo:nth-child(1) {
-  background-image: url("../assets/images/logo_mutante.webp");
+  background-image: url("../assets/images/logo_mutante.png");
 }
 .logos__logo:nth-child(2) {
-  background-image: url("../assets/images/laligacontraesilencio.jpg");
+  background-image: url("../assets/images/laligacontraesilencio.png");
 }
 .logos__logo:nth-child(3) {
-  background-image: url("../assets/images/logorunrunes.webp");
+  background-image: url("../assets/images/logorunrunes.png");
+}
+
+.especial_cierre {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10em;
+  margin-bottom: 5em;
+  padding: 0;
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../assets/images/4_Mano_circulo.svg");
 }
 
 @media (max-width: 1000px) {
