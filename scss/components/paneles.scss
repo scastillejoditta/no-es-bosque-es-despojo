@@ -456,6 +456,8 @@ small
               text-align: left;
               text-transform: uppercase;
               margin-bottom:3px;
+              font-size: 1.45em;
+              line-height: 1;
             }
             small 
             {
@@ -585,6 +587,7 @@ small
             text-align: left;
             color: v.$rosa;
             text-transform: uppercase;
+            line-height: 1;
     }
     
    
@@ -607,22 +610,10 @@ small
     {
       .title 
       { 
-        font-size: 1.5em;
-        //left: 13%;
-      }
-       .play-button {
-        //transform: translate(-10%, -50%);
-        transform: scale(0.7);
-      }
-    }
-
-    @media (max-width: 650px)
-    {
-      .title 
-      { 
         left: 20px;
         top: 30%;
         width: 90%;
+        font-size: 1.4em;
       }
       .play-button {
         top: -6.5px;
@@ -957,6 +948,15 @@ small
         margin-top: 10px;
       }
     }
+    @media (max-width: 460px)
+    {
+     .ribbon 
+     {
+      width: 100%;
+      font-size: 1.5em;
+      left: 0;
+         } 
+    }
 }
 
 #etica
@@ -1144,7 +1144,7 @@ background-size: contain;}
         background-image: url("../assets/images/2_Arbol_mandarina.svg");
       } 
 
-      
+
 .logos {
     display: flex;
     align-items: center;

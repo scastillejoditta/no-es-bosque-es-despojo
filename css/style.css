@@ -609,6 +609,8 @@ small {
   text-align: left;
   text-transform: uppercase;
   margin-bottom: 3px;
+  font-size: 1.45em;
+  line-height: 1;
 }
 .card__header-title small {
   font-family: "texto", sans-serif;
@@ -699,6 +701,7 @@ small {
   text-align: left;
   color: #FFB68E;
   text-transform: uppercase;
+  line-height: 1;
 }
 @media (max-width: 966px) {
   .youtube-wrapper .youtube-thumbnail .title {
@@ -712,17 +715,10 @@ small {
 }
 @media (max-width: 650px) {
   .youtube-wrapper .youtube-thumbnail .title {
-    font-size: 1.5em;
-  }
-  .youtube-wrapper .youtube-thumbnail .play-button {
-    transform: scale(0.7);
-  }
-}
-@media (max-width: 650px) {
-  .youtube-wrapper .youtube-thumbnail .title {
     left: 20px;
     top: 30%;
     width: 90%;
+    font-size: 1.4em;
   }
   .youtube-wrapper .youtube-thumbnail .play-button {
     top: -6.5px;
@@ -1016,6 +1012,13 @@ small {
     top: 0;
     padding-right: 20px;
     margin-top: 10px;
+  }
+}
+@media (max-width: 460px) {
+  .card_total .ribbon {
+    width: 100%;
+    font-size: 1.5em;
+    left: 0;
   }
 }
 
