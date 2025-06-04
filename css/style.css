@@ -442,30 +442,6 @@ small {
   margin-right: auto;
 }
 
-.fondo_menta {
-  background-image: url("../assets/images/5_Arboles_texturas.svg");
-}
-
-.fondo_mandarina {
-  background-image: url("../assets/images/6_Arboles_texturas.svg");
-}
-
-.rosa_tierra {
-  background: url("../assets/images/separador_rosa_arbolinea.png") no-repeat center;
-}
-
-.verde_empresa {
-  background: url("../assets/images/separador_menta_cintillo.png") no-repeat center;
-}
-
-.rosa_empresa {
-  background: url("../assets/images/separador_rosa_cintillo.png") no-repeat center;
-}
-
-.verde_tierra {
-  background: url("../assets/images/separador_menta_arbol.png") no-repeat center;
-}
-
 .separador, .separador_peq {
   display: block;
   height: 500px;
@@ -479,9 +455,11 @@ small {
 .separador_peq {
   height: 80px;
   margin: 10em 0 5em 0;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.apertura {
+.apertura, .ancho_completo {
   position: relative;
   left: 10%;
   top: 20px;
@@ -489,7 +467,7 @@ small {
   padding-bottom: 42.2%;
   overflow: hidden;
 }
-.apertura__video {
+.apertura__video, .ancho_completo__iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -498,7 +476,7 @@ small {
   object-fit: cover;
 }
 @media (max-width: 1200px) {
-  .apertura {
+  .apertura, .ancho_completo {
     top: 70px;
     left: 0;
     width: 100%;
@@ -506,6 +484,12 @@ small {
   }
 }
 
+.ancho_completo {
+  left: 0;
+  top: 70px;
+  width: 100%;
+  padding-bottom: 44%;
+}
 .encabezado {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -588,18 +572,13 @@ small {
 .card__header {
   position: relative;
   width: 100%;
-  padding-top: 66.66%;
+  padding-top: 68.18%;
   overflow: hidden;
 }
 .card__header-img, .ruta__pieza-header-img, .card_total__header-img, .energia .card2__header-img {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.7;
-  display: block;
   padding: 3px;
   border: 1px solid transparent;
   box-sizing: border-box;
@@ -607,8 +586,8 @@ small {
 }
 .card__header-tag, .card_total__header-tag, .energia .card2__header-tag {
   position: absolute;
-  top: 4px;
-  left: 4px;
+  left: 1px;
+  top: 1px;
   padding: 5px;
   color: #000;
   font-family: "menu", sans-serif;
@@ -655,6 +634,22 @@ small {
   }
 }
 
+.fotoportada, .youtube-wrapper .youtube-thumbnail .img, .card__header-img, .ruta__pieza-header-img, .card_total__header-img, .energia .card2__header-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background-size: contain;
+}
+.fotoportada::before, .youtube-wrapper .youtube-thumbnail .img::before, .card__header-img::before, .ruta__pieza-header-img::before, .card_total__header-img::before, .energia .card2__header-img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+  pointer-events: none;
+}
+
 .youtube-wrapper {
   position: relative;
   width: 80%;
@@ -669,11 +664,8 @@ small {
   position: relative;
   padding: 3px;
 }
-.youtube-wrapper .youtube-thumbnail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.youtube-wrapper .youtube-thumbnail .img {
+  background: url("../assets/images/thumbnail_video.jpg") no-repeat center;
 }
 .youtube-wrapper .youtube-thumbnail .play-button {
   position: absolute;
@@ -762,6 +754,9 @@ small {
 .energia .card_total__descrip p {
   color: #CEFAAB;
 }
+.energia .card_total .ribbon {
+  background: #CEFAAB;
+}
 .energia .card:hover .card__header-img, .energia .card:hover .ruta__pieza-header-img, .energia .card:hover .card_total__header-img, .energia .card:hover .card2__header-img {
   border-color: #CEFAAB;
 }
@@ -779,12 +774,12 @@ small {
 .energia .card2__header {
   position: relative;
   width: 100%;
-  padding-top: 66.66%;
+  padding-top: 68.18%;
   overflow: hidden;
 }
 .energia .card2__header-title {
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 10px;
   font-family: "Titulos", sans-serif;
   text-transform: uppercase;
@@ -896,6 +891,9 @@ small {
 .tierras .card_total__descrip p {
   color: #FFB68E;
 }
+.tierras .card_total .ribbon {
+  background: #FFB68E;
+}
 .tierras .card:hover .card__header-img, .tierras .card:hover .ruta__pieza-header-img, .tierras .card:hover .card_total__header-img, .tierras .card:hover .energia .card2__header-img, .energia .tierras .card:hover .card2__header-img {
   border-color: #FFB68E;
 }
@@ -919,6 +917,7 @@ small {
 }
 
 .card_total {
+  position: relative;
   margin-top: 5em;
   height: 20em;
   padding: 3px;
@@ -932,6 +931,7 @@ small {
   grid-column: 1;
   position: relative;
   text-transform: uppercase;
+  opacity: 0.3;
 }
 .card_total__descrip {
   grid-column: 2;
@@ -939,6 +939,7 @@ small {
   line-height: 1;
   font-size: 0.8em;
   padding-right: 70px;
+  opacity: 0.3;
 }
 .card_total__descrip-title {
   font-family: "titulos", sans-serif;
@@ -955,6 +956,27 @@ small {
 .card_total__descrip-autor {
   font-family: "texto", sans-serif;
   text-transform: uppercase;
+}
+.card_total .ribbon {
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  width: 80%;
+  text-align: center;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 2em;
+  font-weight: bold;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.card_total::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+  pointer-events: none;
 }
 @media (max-width: 1159px) {
   .card_total {
@@ -1007,6 +1029,9 @@ small {
 #etica .card_total__descrip p {
   color: #FFB68E;
 }
+#etica .card_total .ribbon {
+  background: #FFB68E;
+}
 #etica .card:hover .card__header-img, #etica .card:hover .ruta__pieza-header-img, #etica .card:hover .energia .card2__header-img, .energia #etica .card:hover .card2__header-img, #etica .card:hover .card_total__header-img {
   border-color: #FFB68E;
 }
@@ -1023,6 +1048,9 @@ small {
 #social .card_total__descrip-autor,
 #social .card_total__descrip p {
   color: #CEFAAB;
+}
+#social .card_total .ribbon {
+  background: #CEFAAB;
 }
 #social .card:hover .card__header-img, #social .card:hover .ruta__pieza-header-img, #social .card:hover .energia .card2__header-img, .energia #social .card:hover .card2__header-img, #social .card:hover .card_total__header-img {
   border-color: #CEFAAB;
@@ -1140,6 +1168,30 @@ small {
   }
 }
 
+.fondo_menta {
+  background-image: url("../assets/images/5_Arboles_texturas.svg");
+}
+
+.fondo_mandarina {
+  background-image: url("../assets/images/6_Arboles_texturas.svg");
+}
+
+.rosa_tierra {
+  background-image: url("../assets/images/separador_rosa_arbolinea.png");
+}
+
+.verde_empresa {
+  background-image: url("../assets/images/separador_menta_cintillo.png");
+}
+
+.rosa_empresa {
+  background-image: url("../assets/images/separador_rosa_cintillo.png");
+}
+
+.verde_tierra {
+  background-image: url("../assets/images/separador_menta_arbol.png");
+}
+
 .pieza1 {
   background-image: url("https://mutante.org/wp-content/uploads/2025/05/01-100-jpg.webp");
 }
@@ -1150,6 +1202,32 @@ small {
 
 .pieza3 {
   background-image: url("https://mutante.org/wp-content/uploads/2025/05/01-100_11zon.jpg");
+}
+
+.bntierras {
+  background: url("../assets/images/banner_tierras.jpg") no-repeat center;
+  background-size: contain;
+}
+
+.bngaleria {
+  background: url("../assets/images/fotoprueba.jpg") no-repeat center;
+  background-size: contain;
+}
+
+.bnvenezuela {
+  background: url("../assets/images/banner_venezuela.jpg") no-repeat center;
+}
+
+.bncolombia {
+  background: url("../assets/images/banner_colombia.jpg") no-repeat center;
+}
+
+.moneda {
+  background-image: url("../assets/images/4_Mano_circulo.svg");
+}
+
+.logo {
+  background-image: url("../assets/images/2_Arbol_mandarina.svg");
 }
 
 .logos {
@@ -1183,7 +1261,7 @@ small {
   background-image: url("../assets/images/logorunrunes.png");
 }
 
-.especial_cierre {
+.cierre {
   margin-left: auto;
   margin-right: auto;
   margin-top: 10em;
@@ -1195,7 +1273,6 @@ small {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("../assets/images/4_Mano_circulo.svg");
 }
 
 @media (max-width: 1000px) {

@@ -256,31 +256,17 @@ small
     padding-top: 100px;
     margin-left: auto;
     margin-right: auto;
-
 }
-
-.fondo_menta
-{background-image: url("../assets/images/5_Arboles_texturas.svg");}
-.fondo_mandarina
-{background-image: url("../assets/images/6_Arboles_texturas.svg");}
-.rosa_tierra
-{background: url("../assets/images/separador_rosa_arbolinea.png") no-repeat center;}
-.verde_empresa
-{background: url("../assets/images/separador_menta_cintillo.png") no-repeat center;}
-.rosa_empresa
-{background: url("../assets/images/separador_rosa_cintillo.png") no-repeat center;}
-.verde_tierra
-{background: url("../assets/images/separador_menta_arbol.png") no-repeat center;}
 
 .separador
 {
   display: block;  
   height: 500px;
   width: 100%;
-    padding: 0;
-    opacity: .9;
-    margin: 5em 0 2em 0;
-    background-size: contain;
+  padding: 0;
+  opacity: .9;
+  margin: 5em 0 2em 0;
+  background-size: contain;
 }
 
 .separador_peq
@@ -288,6 +274,8 @@ small
   @extend .separador;
   height: 80px;
   margin: 10em 0 5em 0;
+   background-repeat: no-repeat;
+   background-position: center;
 }
 
 .apertura 
@@ -307,7 +295,6 @@ small
       width: 100%;
       height: 100%;
       object-fit: cover; // llena el contenedor recortando si es necesario
-      //border: v.$verde solid 2px;
     }
 
     @media (max-width: 1200px)
@@ -319,6 +306,20 @@ small
     }
 
 } 
+
+.ancho_completo
+{
+  @extend .apertura;
+  left: 0;
+  top: 70px;
+  width: 100%;
+  padding-bottom: 44%;
+
+    &__iframe
+    {
+      @extend .apertura__video;
+    }
+}
 
 .encabezado {
   display: grid;
@@ -411,19 +412,15 @@ small
     {
         position: relative;
         width: 100%;
-        padding-top: 66.66% ; //Esta es 3:2, la 16:9 es 56.25%
+        padding-top: 68.18%; //66.66% ; //Esta es 3:2, la 16:9 es 56.25%
         overflow: hidden;
 
         &-img 
         {
-           position: absolute;
+          @extend .fotoportada;  
+          position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%; // ¡Esto es clave!
-            object-fit: cover;
-            opacity: .7;
-            display: block;    
             padding: 3px;
             border: 1px solid transparent;
             box-sizing: border-box;
@@ -433,8 +430,8 @@ small
         &-tag 
         { 
             position: absolute; 
-            top: 4px;
-            left: 4px; 
+            left: 1px;
+           top: 1px;
             padding: 5px; 
             color: #000; 
             font-family: 'menu', sans-serif;
@@ -500,6 +497,7 @@ small
   .card_total__descrip-title, 
   .card_total__descrip-autor, 
   .card_total__descrip p { color: $color; }
+  .card_total .ribbon { background: $color; }
 
   .card:hover .card__header-img
   {
@@ -510,6 +508,25 @@ small
     {
         border: solid 1px $color;
     }
+}
+
+.fotoportada
+{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  
+  background-size: contain;
+
+      &::before {
+      content: '';
+      position: absolute;
+      inset: 0; // shorthand para top, right, bottom, left: 0
+      background-color: rgba(0, 0, 0, 0.5); // Velo negro semitransparente
+      z-index: 0;
+      pointer-events: none;
+      }
 }
 
 .youtube-wrapper {
@@ -526,11 +543,9 @@ small
     position: relative;
     padding:3px;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    .img {
+      @extend .fotoportada;
+      background: url('../assets/images/thumbnail_video.jpg') no-repeat center;
     }
 
     .play-button {
@@ -572,6 +587,8 @@ small
             text-transform: uppercase;
     }
     
+   
+
     @media (max-width: 966px)
     {
       .title 
@@ -648,7 +665,7 @@ small
     {
         position: relative;
         width: 100%;
-        padding-top: 66.66%; // Proporción 3:2
+        padding-top: 68.18%; //66.66%; - Proporción 3:2
         overflow: hidden;
 
         &-img 
@@ -664,7 +681,7 @@ small
         &-title
         {
           position: absolute;
-          top: 50%;
+          top: 20%;
           left: 10px;
           font-family: 'Titulos', sans-serif;
           text-transform: uppercase;
@@ -818,6 +835,7 @@ small
 
 .card_total
 {
+   position: relative; 
     margin-top: 5em;
     height: 20em;
     padding: 3px;
@@ -826,8 +844,7 @@ small
     grid-template-columns: 1fr 1fr;      // Dos columnas iguales
     grid-template-rows: auto;      // Dos filas
     width: 100%;
-    
-    
+
 
     //card__header
     &__header 
@@ -835,6 +852,7 @@ small
       grid-column: 1;
       position: relative;
       text-transform: uppercase;
+      opacity: 0.3;
         //card__header-img
         &-img 
         {
@@ -846,6 +864,8 @@ small
         { 
             @extend .card__header-tag;
         }
+      
+        
     }
 
     &__descrip 
@@ -855,6 +875,7 @@ small
       line-height: 1;
       font-size: 0.8em;
       padding-right: 70px;
+      opacity: 0.3;
 
       &-title 
         {
@@ -877,6 +898,30 @@ small
             text-transform: uppercase;
         }
     } 
+
+    .ribbon {
+        position: absolute;
+        top: 40%;
+        left:5%;// -40px;
+        width: 80%;
+        text-align: center;
+        color: #000;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 2em;
+        font-weight: bold;
+        //transform: rotate(15deg);
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+      }
+
+    &::before {
+    content: '';
+    position: absolute;
+    inset: 0; // shorthand para top, right, bottom, left: 0
+    background-color: rgba(0, 0, 0, 0.5); // Velo negro semitransparente
+    z-index: 0;
+    pointer-events: none;
+    }
 
     @media (max-width: 1159px)
     {
@@ -1052,6 +1097,24 @@ small
     }
 }
 
+//separadores
+.fondo_menta
+{background-image: url("../assets/images/5_Arboles_texturas.svg");}
+.fondo_mandarina
+{background-image: url("../assets/images/6_Arboles_texturas.svg");}
+
+.rosa_tierra
+{background-image: url("../assets/images/separador_rosa_arbolinea.png");
+  }
+.verde_empresa
+{
+background-image: url("../assets/images/separador_menta_cintillo.png");}
+.rosa_empresa
+{background-image: url("../assets/images/separador_rosa_cintillo.png");}
+.verde_tierra
+{background-image: url("../assets/images/separador_menta_arbol.png");}
+
+//Ruta de conversacion
 .pieza1
 {background-image: url("https://mutante.org/wp-content/uploads/2025/05/01-100-jpg.webp");}
 .pieza2
@@ -1059,7 +1122,29 @@ small
 .pieza3
 {background-image: url("https://mutante.org/wp-content/uploads/2025/05/01-100_11zon.jpg");}
 
+//banners cards
+.bntierras
+{background: url('../assets/images/banner_tierras.jpg') no-repeat center;
+background-size: contain;}
+.bngaleria
+{background: url('../assets/images/fotoprueba.jpg') no-repeat center;
+background-size: contain;}
+
+//banners card2
+.bnvenezuela
+{background: url('../assets/images/banner_venezuela.jpg') no-repeat center;}
+.bncolombia
+{background: url('../assets/images/banner_colombia.jpg') no-repeat center;}
+
 // Logos
+.moneda{
+        background-image: url("../assets/images/4_Mano_circulo.svg");
+      }       
+.logo{
+        background-image: url("../assets/images/2_Arbol_mandarina.svg");
+      } 
+
+      
 .logos {
     display: flex;
     align-items: center;
@@ -1093,7 +1178,7 @@ small
     }
   }
 
-  .especial_cierre {
+  .cierre {
       margin-left: auto;
       margin-right: auto;
       margin-top: 10em;
@@ -1104,8 +1189,7 @@ small
       height: 100px;
       background-size: contain;
       background-repeat: no-repeat;
-      background-position: center;
-      background-image: url("../assets/images/4_Mano_circulo.svg");
+      background-position: center;      
   }
 
 //responsive
