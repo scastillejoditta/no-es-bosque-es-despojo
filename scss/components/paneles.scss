@@ -423,7 +423,7 @@ small
             top: 0;
             left: 0;
             padding: 3px;
-            border: 1px solid transparent;
+            border: 1px solid #000;
             box-sizing: border-box;
             transition: border-color 0.3s ease;
         }
@@ -652,6 +652,7 @@ small
     background-color: #000;
     transition: all .8s; 
     align-self: flex-start;
+    border: solid 1px #000;
 
     &__header 
     {

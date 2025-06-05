@@ -581,7 +581,7 @@ small {
   top: 0;
   left: 0;
   padding: 3px;
-  border: 1px solid transparent;
+  border: 1px solid #000;
   box-sizing: border-box;
   transition: border-color 0.3s ease;
 }
@@ -767,6 +767,7 @@ small {
   background-color: #000;
   transition: all 0.8s;
   align-self: flex-start;
+  border: solid 1px #000;
 }
 .energia .card2__header {
   position: relative;
@@ -1300,6 +1301,74 @@ small {
   }
   #rio_mobile {
     display: block;
+  }
+}
+.cintillo {
+  position: fixed;
+  top: 2px;
+  left: 0px;
+  width: 100%;
+  height: 200px;
+  background-color: #000;
+  display: flex;
+  justify-content: flex-start;
+  align-items: left;
+  padding: 0 20px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+.cintillo__texto {
+  margin: 50px 0 0 20px;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-family: "titulos", sans-serif;
+  color: #CEFAAB;
+  letter-spacing: 2px;
+}
+.cintillo__logo {
+  margin: 0;
+  padding: 5px;
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../assets/images/3_Mano_circulo.svg");
+}
+.cintillo:hover .cintillo__logo {
+  background-image: url("../assets/images/4_Mano_circulo.svg");
+}
+.cintillo:hover .cintillo__texto {
+  color: #FFB68E;
+}
+@media (max-width: 728px) {
+  .cintillo {
+    height: 150px;
+  }
+  .cintillo .cintillo__texto {
+    font-size: 1em;
+  }
+  .cintillo .cintillo__logo {
+    width: 150px;
+    height: 150px;
+  }
+}
+@media (max-width: 445px) {
+  .cintillo .cintillo__texto {
+    margin: 40px 0 0 20px;
+  }
+}
+@media (max-width: 383px) {
+  .cintillo {
+    height: 130px;
+  }
+  .cintillo .cintillo__texto {
+    margin: 30px 0 0 10px;
+  }
+  .cintillo .cintillo__logo {
+    width: 130px;
+    height: 130px;
   }
 }
 
