@@ -311,7 +311,8 @@ small
 {
   @extend .apertura;
   left: 0;
-  top: 70px;
+  top: 0;
+  margin-top: 80px;
   width: 100%;
   padding-bottom: 44%;
 
@@ -835,7 +836,7 @@ small
     grid-template-columns: 1fr 1fr;      // Dos columnas iguales
     grid-template-rows: auto;      // Dos filas
     width: 100%;
-
+    border: solid 1px #000;
 
     //card__header
     &__header 
@@ -1007,8 +1008,12 @@ small
 
       &-descrip
       {
-        padding: 2em 4em 0 1em;
-        
+        position: relative;
+        top: 5px;
+        left: 15px;
+        line-height: 1;
+        width: 95%;
+
         span {
           text-transform: uppercase;
           font-family: 'menu', sans-serif;
@@ -1051,8 +1056,6 @@ small
      @media (max-width: 928px)
     {
       .ruta__pieza {height:150px;}
-      .ruta__pieza-descrip
-      {padding: 1em 1em 0 1em;}
     }
   }
 
@@ -1127,7 +1130,7 @@ background-image: url("../assets/images/separador_menta_cintillo.png");}
 {background: url('../assets/images/banner_tierras.jpg') no-repeat center;
 background-size: contain;}
 .bngaleria
-{background: url('../assets/images/fotoprueba.jpg') no-repeat center;
+{background: url('../assets/images/banner_galeria.jpg') no-repeat center;
 background-size: contain;}
 
 //banners card2
@@ -1140,10 +1143,6 @@ background-size: contain;}
 .moneda{
         background-image: url("../assets/images/4_Mano_circulo.svg");
       }       
-.logo{
-        background-image: url("../assets/images/2_Arbol_mandarina.svg");
-      } 
-
 
 .logos {
     display: flex;
@@ -1190,6 +1189,19 @@ background-size: contain;}
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;      
+  }
+  .cierrelogo {
+  @extend .cierre;
+  width: 350px;
+  height: 200px;
+  background-image: url("../assets/images/noesbosqueesdespojo.png");
+  margin-bottom: 8em;
+  @media (max-width: 470px)
+    {
+      width: 250px;
+      height: 150px;
+
+    }
   }
 
 //responsive

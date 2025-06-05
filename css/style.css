@@ -486,7 +486,8 @@ small {
 
 .ancho_completo {
   left: 0;
-  top: 70px;
+  top: 0;
+  margin-top: 80px;
   width: 100%;
   padding-bottom: 44%;
 }
@@ -922,6 +923,7 @@ small {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   width: 100%;
+  border: solid 1px #000;
 }
 .card_total__header {
   grid-column: 1;
@@ -1090,7 +1092,11 @@ small {
   background-repeat: no-repeat;
 }
 .ruta__pieza-descrip {
-  padding: 2em 4em 0 1em;
+  position: relative;
+  top: 5px;
+  left: 15px;
+  line-height: 1;
+  width: 95%;
 }
 .ruta__pieza-descrip span {
   text-transform: uppercase;
@@ -1126,9 +1132,6 @@ small {
 @media (max-width: 928px) {
   .ruta .ruta__pieza {
     height: 150px;
-  }
-  .ruta .ruta__pieza-descrip {
-    padding: 1em 1em 0 1em;
   }
 }
 
@@ -1213,7 +1216,7 @@ small {
 }
 
 .bngaleria {
-  background: url("../assets/images/fotoprueba.jpg") no-repeat center;
+  background: url("../assets/images/banner_galeria.jpg") no-repeat center;
   background-size: contain;
 }
 
@@ -1227,10 +1230,6 @@ small {
 
 .moneda {
   background-image: url("../assets/images/4_Mano_circulo.svg");
-}
-
-.logo {
-  background-image: url("../assets/images/2_Arbol_mandarina.svg");
 }
 
 .logos {
@@ -1264,7 +1263,7 @@ small {
   background-image: url("../assets/images/logorunrunes.png");
 }
 
-.cierre {
+.cierre, .cierrelogo {
   margin-left: auto;
   margin-right: auto;
   margin-top: 10em;
@@ -1276,6 +1275,19 @@ small {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.cierrelogo {
+  width: 350px;
+  height: 200px;
+  background-image: url("../assets/images/noesbosqueesdespojo.png");
+  margin-bottom: 8em;
+}
+@media (max-width: 470px) {
+  .cierrelogo {
+    width: 250px;
+    height: 150px;
+  }
 }
 
 @media (max-width: 1000px) {
