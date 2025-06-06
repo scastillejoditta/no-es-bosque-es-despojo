@@ -1303,22 +1303,30 @@ small {
     display: block;
   }
 }
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 180px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
 .cintillo {
   position: fixed;
-  top: 10px;
-  left: 0px;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: 170px;
   background-color: #000;
   display: flex;
   justify-content: flex-start;
   align-items: left;
-  padding: 0 10px;
+  padding: 10px 10px;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 }
 .cintillo__texto {
-  margin: 50px 0 0 20px;
+  margin: 40px 0 0 20px;
   font-size: 1.5em;
   text-transform: uppercase;
   font-family: "titulos", sans-serif;
@@ -1327,13 +1335,13 @@ small {
 }
 .cintillo__logo {
   margin: 0;
-  padding: 5px;
+  padding: 0;
   display: block;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   background-image: url("../assets/images/3_Mano_circulo.svg");
 }
 .cintillo:hover .cintillo__logo {
@@ -1343,15 +1351,8 @@ small {
   color: #FFB68E;
 }
 @media (max-width: 728px) {
-  .cintillo {
-    height: 150px;
-  }
   .cintillo .cintillo__texto {
     font-size: 1em;
-  }
-  .cintillo .cintillo__logo {
-    width: 150px;
-    height: 150px;
   }
 }
 @media (max-width: 445px) {
@@ -1369,6 +1370,7 @@ small {
   .cintillo .cintillo__logo {
     width: 130px;
     height: 130px;
+    background-position: left 20%;
   }
 }
 
