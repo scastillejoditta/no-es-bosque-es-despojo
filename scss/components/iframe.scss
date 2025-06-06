@@ -4,13 +4,15 @@
 body, html {
   margin: 0;
   padding: 0;
-  height: 180px;
+  height: auto;
   overflow: hidden;
   background-color:#fff;
 }
-
+a {
+    text-decoration: none;
+}
 .cintillo {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -70,7 +72,7 @@ body, html {
       .cintillo__logo { 
         width: 130px;
         height: 130px;
-        background-position: left 20%;}
+        background-position: left 30%;}
     }
 
 }
