@@ -1215,6 +1215,50 @@ small {
   background-image: url("https://mutante.org/wp-content/uploads/2025/06/01-2-jpg.webp");
 }
 
+.pieza5 {
+  background-image: url("https://mutante.org/wp-content/uploads/2025/06/Flyerenvivo-jpg.webp");
+}
+
+.pieza6 {
+  background-image: url("../assets/images/pieza6.jpg");
+}
+
+.pieza7 {
+  background-image: url("https://mutante.org/wp-content/uploads/2025/06/01-100-jpg.webp");
+}
+
+.pieza8 {
+  background-image: url("../assets/images/pieza8.jpg");
+}
+
+.pieza9 {
+  background-image: url("../assets/images/pieza9.jpg");
+}
+
+.pieza10 {
+  background-image: url("../assets/images/pieza10.jpg");
+}
+
+.pieza11 {
+  background-image: url("../assets/images/pieza11.jpg");
+}
+
+.pieza12 {
+  background-image: url("../assets/images/pieza12.jpg");
+}
+
+.pieza13 {
+  background-image: url("../assets/images/pieza13.jpg");
+}
+
+.pieza14 {
+  background-image: url("../assets/images/pieza14.jpg");
+}
+
+.pieza15 {
+  background-image: url("../assets/images/pieza15.jpg");
+}
+
 .bntierras {
   background: url("../assets/images/banner_tierras.jpg") no-repeat center;
   background-size: contain;
@@ -1308,4 +1352,4 @@ small {
   }
 }
 
-/*# sourceMappingURL=styling.css.map */
+/*# sourceMappingURL=design.css.map */
