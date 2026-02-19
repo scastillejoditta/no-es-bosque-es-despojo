@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Crea el iframe para el reproductor de YouTube
       const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+      iframe.setAttribute('src', `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`);
       iframe.setAttribute('frameborder', '0');
       iframe.setAttribute('allowfullscreen', '');
       iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');

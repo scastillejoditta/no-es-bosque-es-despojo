@@ -1024,7 +1024,7 @@ small
           font-family: 'menu', sans-serif;
           font-size: 0.9em;
           color: #000;
-          background-color: center;
+          background-color: v.$rosa;
           padding: 0.5em;
         }
 
@@ -1195,13 +1195,13 @@ background-size: contain;}
       background-position: center;
      
     &:nth-child(1) {
-      background-image: url("../assets/images/logo_mutante.png");
+      background-image: url("../assets/images/logo_mutante_v.png");
     }
     &:nth-child(2) {
-      background-image: url("../assets/images/laligacontraesilencio.png");
+      background-image: url("../assets/images/laligacontraesilencio_v.png");
     }
     &:nth-child(3) {
-      background-image: url("../assets/images/logorunrunes.png");
+      background-image: url("../assets/images/logorunrunes_v.png");
     }
     }
   }
@@ -1223,7 +1223,7 @@ background-size: contain;}
   @extend .cierre;
   width: 350px;
   height: 200px;
-  background-image: url("../assets/images/noesbosqueesdespojo.png");
+  background-image: url("../assets/images/noesbosqueesdespojo_v.png");
   margin-bottom: 8em;
   @media (max-width: 470px)
     {

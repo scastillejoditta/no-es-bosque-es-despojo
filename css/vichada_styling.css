@@ -1107,7 +1107,7 @@ small {
   font-family: "menu", sans-serif;
   font-size: 0.9em;
   color: #000;
-  background-color: center;
+  background-color: #FFB68E;
   padding: 0.5em;
 }
 .ruta__pieza-descrip p {
@@ -1306,13 +1306,13 @@ small {
   background-position: center;
 }
 .logos__logo:nth-child(1) {
-  background-image: url("../assets/images/logo_mutante.png");
+  background-image: url("../assets/images/logo_mutante_v.png");
 }
 .logos__logo:nth-child(2) {
-  background-image: url("../assets/images/laligacontraesilencio.png");
+  background-image: url("../assets/images/laligacontraesilencio_v.png");
 }
 .logos__logo:nth-child(3) {
-  background-image: url("../assets/images/logorunrunes.png");
+  background-image: url("../assets/images/logorunrunes_v.png");
 }
 
 .cierre, .cierrelogo {
@@ -1332,7 +1332,7 @@ small {
 .cierrelogo {
   width: 350px;
   height: 200px;
-  background-image: url("../assets/images/noesbosqueesdespojo.png");
+  background-image: url("../assets/images/noesbosqueesdespojo_v.png");
   margin-bottom: 8em;
 }
 @media (max-width: 470px) {
@@ -1355,4 +1355,4 @@ small {
   }
 }
 
-/*# sourceMappingURL=vichada_styles.css.map */
+/*# sourceMappingURL=vichada_styling.css.map */
