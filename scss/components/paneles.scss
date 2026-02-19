@@ -208,13 +208,10 @@ small
     &:nth-child(3) .icons{
       background-image: url("../assets/images/ico_energia.svg");
     }
-    &:nth-child(4) .icons {
-      background-image: url("../assets/images/ico_etica.svg");
-    }
-    &:nth-child(5) .icons{
+    &:nth-child(4) .icons{
       background-image: url("../assets/images/ico_social.svg");
     }
-    &:nth-child(6) .icons{
+    &:nth-child(5) .icons{
       background-image: url("../assets/images/ico_equipo.svg");
     }
 
@@ -229,12 +226,9 @@ small
       content: 'Energía';
     }
     &:nth-child(4):hover::after {
-      content: 'Periodismo';
-    }
-    &:nth-child(5):hover::after {
       content: 'Conversación';
     }
-    &:nth-child(6):hover::after {
+    &:nth-child(5):hover::after {
       content: 'Equipo';
     }
   }
@@ -968,7 +962,7 @@ small
 
 #social
 {
-  @include colorear_cards(v.$verde);
+  @include colorear_cards(v.$rosa);
 }
 
   .ruta
@@ -993,16 +987,27 @@ small
       &-header
       {
         position: relative;
-        background-color: v.$verde;
+        background-color: v.$rosa;
         
         &-img {
           @extend .card__header-img;
           width: 100%;
           height: 100%; 
-          background-color: v.$verde; 
-          background-size: 90%;         
-          background-position: center center;
+          background-color: v.$rosa; 
+          background-size: cover; //90%;         
+          background-position: center rosa;
           background-repeat: no-repeat;   
+        
+          &::before 
+          {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: inherit;
+            background-size: inherit;
+            background-position: inherit;
+            opacity: 1;
+          }
         }
       }
 
@@ -1019,7 +1024,7 @@ small
           font-family: 'menu', sans-serif;
           font-size: 0.9em;
           color: #000;
-          background-color: v.$verde;
+          background-color: center;
           padding: 0.5em;
         }
 
@@ -1027,7 +1032,7 @@ small
           font-family: 'titulos', sans-serif;
           font-size: 1em;
           text-transform: uppercase;
-          color: v.$verde;
+          color: v.$rosa;
           margin-top: 1em;
           margin-bottom: 0;
         }
@@ -1036,7 +1041,7 @@ small
         {
           font-family: 'texto', sans-serif;
           letter-spacing: 1px;
-          color: v.$verde;
+          color: v.$rosa;
           margin-top: 0;
           margin-bottom: 0.5em;
         }
@@ -1044,7 +1049,7 @@ small
 
       &:hover
       {
-        border: solid 1px v.$verde;
+        border: solid 1px v.$rosa;
       }
     }
     
@@ -1165,7 +1170,7 @@ background-size: contain;}
 
 // Logos
 .moneda {
-  background-image: url("../assets/images/4_Mano_circulo.svg");
+  background-image: url("../assets/images/3_Mano_circulo.svg");
   }       
 
 .logos {

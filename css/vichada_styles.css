@@ -397,12 +397,9 @@ small {
   background-image: url("../assets/images/ico_energia.svg");
 }
 #indicator .nav-link:nth-child(4) .icons {
-  background-image: url("../assets/images/ico_etica.svg");
-}
-#indicator .nav-link:nth-child(5) .icons {
   background-image: url("../assets/images/ico_social.svg");
 }
-#indicator .nav-link:nth-child(6) .icons {
+#indicator .nav-link:nth-child(5) .icons {
   background-image: url("../assets/images/ico_equipo.svg");
 }
 #indicator .nav-link:nth-child(1):hover::after {
@@ -415,12 +412,9 @@ small {
   content: "Energía";
 }
 #indicator .nav-link:nth-child(4):hover::after {
-  content: "Periodismo";
-}
-#indicator .nav-link:nth-child(5):hover::after {
   content: "Conversación";
 }
-#indicator .nav-link:nth-child(6):hover::after {
+#indicator .nav-link:nth-child(5):hover::after {
   content: "Equipo";
 }
 @media (max-width: 600px) {
@@ -1046,23 +1040,23 @@ small {
 }
 
 #social .card__header-tag, #social .energia .card2__header-tag, .energia #social .card2__header-tag, #social .card_total__header-tag {
-  background-color: #CEFAAB;
+  background-color: #FFB68E;
 }
 #social .card__descrip,
 #social .card__header-title,
 #social .card_total__descrip-title,
 #social .card_total__descrip-autor,
 #social .card_total__descrip p {
-  color: #CEFAAB;
+  color: #FFB68E;
 }
 #social .card_total .ribbon {
-  background: #CEFAAB;
+  background: #FFB68E;
 }
 #social .card:hover .card__header-img, #social .card:hover .ruta__pieza-header-img, #social .card:hover .energia .card2__header-img, .energia #social .card:hover .card2__header-img, #social .card:hover .card_total__header-img {
-  border-color: #CEFAAB;
+  border-color: #FFB68E;
 }
 #social .card_total:hover, #social .card2:hover {
-  border: solid 1px #CEFAAB;
+  border: solid 1px #FFB68E;
 }
 
 .ruta {
@@ -1082,15 +1076,24 @@ small {
 }
 .ruta__pieza-header {
   position: relative;
-  background-color: #CEFAAB;
+  background-color: #FFB68E;
 }
 .ruta__pieza-header-img {
   width: 100%;
   height: 100%;
-  background-color: #CEFAAB;
-  background-size: 90%;
-  background-position: center center;
+  background-color: #FFB68E;
+  background-size: cover;
+  background-position: center rosa;
   background-repeat: no-repeat;
+}
+.ruta__pieza-header-img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-size: inherit;
+  background-position: inherit;
+  opacity: 1;
 }
 .ruta__pieza-descrip {
   position: relative;
@@ -1104,26 +1107,26 @@ small {
   font-family: "menu", sans-serif;
   font-size: 0.9em;
   color: #000;
-  background-color: #CEFAAB;
+  background-color: center;
   padding: 0.5em;
 }
 .ruta__pieza-descrip p {
   font-family: "titulos", sans-serif;
   font-size: 1em;
   text-transform: uppercase;
-  color: #CEFAAB;
+  color: #FFB68E;
   margin-top: 1em;
   margin-bottom: 0;
 }
 .ruta__pieza-descrip small {
   font-family: "texto", sans-serif;
   letter-spacing: 1px;
-  color: #CEFAAB;
+  color: #FFB68E;
   margin-top: 0;
   margin-bottom: 0.5em;
 }
 .ruta__pieza:hover {
-  border: solid 1px #CEFAAB;
+  border: solid 1px #FFB68E;
 }
 @media (max-width: 928px) {
   .ruta {
@@ -1278,7 +1281,7 @@ small {
 }
 
 .moneda {
-  background-image: url("../assets/images/4_Mano_circulo.svg");
+  background-image: url("../assets/images/3_Mano_circulo.svg");
 }
 
 .logos {
@@ -1352,4 +1355,4 @@ small {
   }
 }
 
-/*# sourceMappingURL=design.css.map */
+/*# sourceMappingURL=vichada_styles.css.map */
